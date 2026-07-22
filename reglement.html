@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title data-en="Rules &amp; submitting — WoCC Guild Boards">Règlement &amp; soumission — Boards des Guildes</title>
+<meta name="description" content="Le règlement des Boards des Guildes : vérification des records par preuve vidéo, soumissions sur l'honneur, barèmes de points, tournois et contestations.">
+<meta name="theme-color" content="#4ea8de">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><polygon points=%2750,0 100,16 100,60 50,100 0,60 0,16%27 fill=%27%234ea8de%27/><text x=%2750%27 y=%2772%27 font-size=%2752%27 text-anchor=%27middle%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%230a1622%27>B</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="rules">
+
+<header class="topbar">
+  <div class="row">
+    <a class="brand" href="index.html"><span class="sigil">B</span><b data-en="WoCC Guild Boards">Boards des Guildes</b></a>
+    <nav class="topnav" data-boards-nav data-current="rules"></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap rules">
+    <section class="hero" style="padding-bottom:10px">
+      <h1 data-en="Rules &amp; submitting">Règlement &amp; soumission</h1>
+      <p data-en="Simple principle: everyone can play, everything is public, and proof beats trust. The boards live on GitHub — every record is a commit, every dispute is an issue, the whole history is auditable.">Principe simple : tout le monde peut jouer, tout est public, et la preuve l'emporte sur la confiance. Les boards vivent sur GitHub — chaque record est un commit, chaque litige est une issue, tout l'historique est auditable.</p>
+    </section>
+
+    <section>
+      <h2 data-en="1. Verification: two levels of trust">1. Vérification : deux niveaux de confiance</h2>
+      <p data-en="We chose a hybrid system rather than forcing video on everyone or trusting everyone blindly:">Nous avons choisi un système hybride plutôt que d'imposer la vidéo à tous ou de croire tout le monde sur parole :</p>
+      <ul>
+        <li><span class="badge verified">✔ <span data-en="Verified">Vérifié</span></span> — <span data-en="the submission includes a video (or unedited VOD) reviewed by a Boards maintainer: full fight visible, timer checkable, roster countable. This is the gold standard.">la soumission inclut une vidéo (ou VOD non coupée) relue par un mainteneur des Boards : combat visible en entier, chrono vérifiable, effectif comptable. C'est l'étalon-or.</span></li>
+        <li><span class="badge declared">✎ <span data-en="On honor">Sur l'honneur</span></span> — <span data-en="the guild master declares the result without proof. The entry is listed and ranked, but visually marked, and…">le maître de guilde déclare le résultat sans preuve. L'entrée est listée et classée, mais marquée visuellement, et…</span></li>
+      </ul>
+      <div class="callout"><b data-en="The golden rule:">La règle d'or :</b> <span data-en="on any board, verified entries always rank above declared ones — even with a slower time. And the #1 spot only carries the “Server record” title if it is verified. No proof, no record. Declaring on honor still gets you on the board and keeps the process light; filming gets you the crown.">sur chaque tableau, les entrées vérifiées passent toujours devant les déclarées — même avec un temps plus lent. Et la première place ne porte le titre « Record du serveur » que si elle est vérifiée. Pas de preuve, pas de record. Déclarer sur l'honneur te place quand même au tableau et garde le processus léger ; filmer te donne la couronne.</span></div>
+      <p data-en="Why this trade-off? Pure video slows everyone down and kills casual participation; pure trust kills credibility. This way casual guilds post times in 2 minutes, and competitive guilds have a real incentive to record their fights.">Pourquoi ce compromis ? Le tout-vidéo alourdit et décourage la participation détente ; le tout-confiance tue la crédibilité. Ainsi, une guilde tranquille poste son temps en 2 minutes, et une guilde compétitive a une vraie raison de filmer ses kills.</p>
+    </section>
+
+    <section>
+      <h2 data-en="2. How to submit">2. Comment soumettre</h2>
+      <p data-en="Everything goes through the GitHub repository — no account on any third-party site, no server to maintain:">Tout passe par le dépôt GitHub — aucun compte sur un site tiers, aucun serveur à maintenir :</p>
+      <ul>
+        <li><strong data-en="Register your guild:">Inscrire sa guilde :</strong> <span data-en="open the “Guild registration” issue (name, tag, region, members, average level, total XP). A maintainer merges it into">ouvrir l'issue « Inscription de guilde » (nom, tag, région, effectif, niveau moyen, XP totale). Un mainteneur l'intègre dans</span> <code>data/guilds.json</code>.</li>
+        <li><strong data-en="Submit a PvE record:">Soumettre un record PvE :</strong> <span data-en="“PvE record” issue — boss, difficulty, kill time, roster size, date, video link if available. Or open a PR directly on">issue « Record PvE » — boss, difficulté, temps de kill, effectif, date, lien vidéo si disponible. Ou une PR directement sur</span> <code>data/pve-records.json</code>.</li>
+        <li><strong data-en="Ladder rating:">Cote de ladder :</strong> <span data-en="same flow, targeting">même logique, vers</span> <code>data/pvp.json</code>.</li>
+        <li><strong data-en="Tournament results:">Résultats de tournoi :</strong> <span data-en="the organizer submits the full bracket to">l'organisateur soumet l'arbre complet vers</span> <code>data/tournaments.json</code>.</li>
+      </ul>
+      <p data-en="Guild masters (or an officer they name in the registration issue) are the only voices that count for their guild's submissions.">Seuls les maîtres de guilde (ou un officier désigné dans l'issue d'inscription) font foi pour les soumissions de leur guilde.</p>
+    </section>
+
+    <section>
+      <h2 data-en="3. PvE boards">3. Tableaux PvE</h2>
+      <ul>
+        <li data-en="One board per boss × difficulty (normal / heroic), aligned with the game's content: the Nythraxis raid (10 players), the four dungeons (5 players), the delves (2 players, full clear time) and the world boss Thunzharr.">Un tableau par boss × difficulté (normal / héroïque), aligné sur le contenu du jeu : le raid Nythraxis (10 joueurs), les quatre donjons (5 joueurs), les gouffres (2 joueurs, temps sur le gouffre complet) et le boss mondial Thunzharr.</li>
+        <li data-en="The timer runs from pull to death of the boss (from entering to clearing for delves).">Le chrono court du pull à la mort du boss (de l'entrée au clear pour les gouffres).</li>
+        <li data-en="Each guild appears once per board with its best attempt. First-kill dates are tracked too (progress race).">Chaque guilde apparaît une fois par tableau avec son meilleur essai. Les dates de premier kill sont aussi suivies (course à la progression).</li>
+        <li data-en="Per-board scoring towards the overall standings (F1 scale): 25, 18, 15, 12, 10, 8, 6, 4, 2, 1.">Barème par tableau pour le classement général (barème F1) : 25, 18, 15, 12, 10, 8, 6, 4, 2, 1.</li>
+        <li data-en="When a game update changes an encounter significantly, the affected boards are archived and restart fresh (the patch is stored on every record).">Quand une MAJ du jeu change significativement une rencontre, les tableaux concernés sont archivés et repartent à zéro (la version du jeu est stockée sur chaque record).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-en="4. PvP circuit &amp; tournaments">4. Circuit PvP &amp; tournois</h2>
+      <ul>
+        <li data-en="Supported formats: single elimination, double elimination, pools (round robin) and Swiss system.">Formats gérés : élimination directe, double élimination, poules (round robin) et système suisse.</li>
+        <li data-en="Circuit points by placement — major tournaments: 100 / 60 / 45 / 35 / 20 (5th–8th); standard: 50 / 30 / 22 / 18 / 10.">Points du circuit par placement — tournois majeurs : 100 / 60 / 45 / 35 / 20 (5e–8e) ; standards : 50 / 30 / 22 / 18 / 10.</li>
+        <li data-en="Any guild can host a standard tournament; majors are organized or co-signed by the Boards maintainers.">Chaque guilde peut organiser un tournoi standard ; les majeurs sont organisés ou co-signés par les mainteneurs des Boards.</li>
+        <li data-en="In-game ladder ratings (1v1/2v2) are displayed for bragging rights but never feed circuit points — only cross-guild competition does.">Les cotes de ladder en jeu (1v1/2v2) sont affichées pour la gloire mais n'alimentent jamais le circuit — seule la compétition inter-guildes compte.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-en="5. Disputes">5. Contestations</h2>
+      <ul>
+        <li data-en="Any result can be contested within 7 days via the “Dispute” issue, with an explanation.">Tout résultat peut être contesté sous 7 jours via l'issue « Contestation », avec explication.</li>
+        <li data-en="A contested declared entry must produce proof or is removed. A contested verified entry is re-reviewed by two maintainers.">Une entrée sur l'honneur contestée doit produire une preuve, sinon elle est retirée. Une entrée vérifiée contestée est re-relue par deux mainteneurs.</li>
+        <li data-en="Proven cheating (edited video, fabricated result) = guild suspended from the boards for one season.">Triche avérée (vidéo montée, résultat fabriqué) = guilde suspendue des boards pour une saison.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 data-en="6. Why GitHub, and the road to “official”">6. Pourquoi GitHub, et le chemin vers l'« officiel »</h2>
+      <p data-en="The whole site is static and free to host (GitHub Pages). There is no database: the JSON files in the repo are the database, and the git history is the audit log. That makes the project trivially transferable: levy-street could fork or adopt the repository, plug real game data (or an API) into the same JSON contracts, and these boards become the official ones without rewriting anything.">Tout le site est statique et gratuit à héberger (GitHub Pages). Il n'y a pas de base de données : les fichiers JSON du dépôt sont la base de données, et l'historique git est le journal d'audit. Le projet est donc trivial à transférer : levy-street peut forker ou adopter le dépôt, brancher les vraies données du jeu (ou une API) sur les mêmes contrats JSON, et ces boards deviennent officiels sans rien réécrire.</p>
+      <div class="callout"><b data-en="Roadmap if adopted:">Feuille de route si adoption :</b> <span data-en="automatic kill times pushed by the game server (no more video needed), OAuth guild identity, seasons with rewards, and per-class speedrun boards.">temps de kill poussés automatiquement par le serveur du jeu (plus besoin de vidéo), identité de guilde via OAuth, saisons avec récompenses, et tableaux de speedrun par classe.</span></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-en="WoCC Guild Boards — a community project.">Boards des Guildes — projet communautaire.</span>
+    <a href="https://github.com/Reptile-New/guild-leaderbord" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

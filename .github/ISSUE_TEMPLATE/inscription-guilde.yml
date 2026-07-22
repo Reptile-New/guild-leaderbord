@@ -1,0 +1,72 @@
+name: "🏰 Inscription de guilde"
+description: "Inscrire votre guilde sur les Boards (data/guilds.json)"
+title: "[Guilde] "
+labels: ["inscription"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de rejoindre les Boards ! Un mainteneur intégrera votre guilde dans `data/guilds.json`.
+        Seul le **maître de guilde** (ou un officier qu'il désigne ici) pourra soumettre des records par la suite.
+  - type: input
+    id: nom
+    attributes:
+      label: "Nom de la guilde"
+      placeholder: "La Clauderie"
+    validations:
+      required: true
+  - type: input
+    id: tag
+    attributes:
+      label: "Tag (2 à 5 lettres)"
+      placeholder: "CLDR"
+    validations:
+      required: true
+  - type: dropdown
+    id: region
+    attributes:
+      label: "Région"
+      options: ["EU", "NA", "APAC", "Autre"]
+    validations:
+      required: true
+  - type: input
+    id: membres
+    attributes:
+      label: "Nombre de membres"
+      placeholder: "24"
+    validations:
+      required: true
+  - type: input
+    id: niveau
+    attributes:
+      label: "Niveau moyen des membres"
+      placeholder: "16"
+    validations:
+      required: true
+  - type: input
+    id: xp
+    attributes:
+      label: "XP totale cumulée (approximative)"
+      placeholder: "812400"
+  - type: input
+    id: creation
+    attributes:
+      label: "Date de création de la guilde (AAAA-MM-JJ)"
+      placeholder: "2026-02-10"
+  - type: input
+    id: mdg
+    attributes:
+      label: "Maître de guilde (pseudo en jeu) + officiers autorisés à soumettre"
+      placeholder: "Yumiko (MG), Maelis (officier)"
+    validations:
+      required: true
+  - type: input
+    id: site
+    attributes:
+      label: "Site / Discord (optionnel)"
+      placeholder: "https://laclauderie.fr"
+  - type: input
+    id: devise
+    attributes:
+      label: "Devise (une phrase, affichée sur les Boards)"
+      placeholder: "On quête, on raid, on rigole — ensemble."

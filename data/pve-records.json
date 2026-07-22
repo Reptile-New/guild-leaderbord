@@ -1,0 +1,42 @@
+{
+  "_aide": "Records PvE soumis par les guildes. Un enregistrement = la meilleure tentative d'une guilde sur un boss/difficulté (le site ne garde que le meilleur temps par guilde et par tableau). status : 'verified' (preuve vidéo relue par un mainteneur) ou 'declared' (sur l'honneur du maître de guilde). Les entrées vérifiées passent TOUJOURS devant les déclarées, quel que soit le temps — voir reglement.html. timeSeconds = durée du combat (ou du gouffre complet si objective=clear). firstKill = date du tout premier kill de la guilde (course à la progression).",
+  "_demo": true,
+  "records": [
+    { "guild": "la-clauderie",      "encounter": "nythraxis", "difficulty": "heroic", "timeSeconds": 492, "roster": 10, "date": "2026-07-18", "firstKill": "2026-07-12", "video": "https://youtu.be/demo-cldr-nyth-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+    { "guild": "thornpeak-vanguard", "encounter": "nythraxis", "difficulty": "heroic", "timeSeconds": 478, "roster": 10, "date": "2026-07-19", "firstKill": "2026-07-11", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+    { "guild": "forgeborn-pact",    "encounter": "nythraxis", "difficulty": "heroic", "timeSeconds": 581, "roster": 10, "date": "2026-07-15", "firstKill": "2026-07-15", "video": "https://youtu.be/demo-forg-nyth-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "thornpeak-vanguard", "encounter": "nythraxis", "difficulty": "normal", "timeSeconds": 365, "roster": 10, "date": "2026-07-06", "firstKill": "2026-06-28", "video": "https://youtu.be/demo-thrn-nyth-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "nythraxis", "difficulty": "normal", "timeSeconds": 382, "roster": 10, "date": "2026-07-04", "firstKill": "2026-06-30", "video": "https://youtu.be/demo-cldr-nyth-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "moonlit-tide",      "encounter": "nythraxis", "difficulty": "normal", "timeSeconds": 468, "roster": 9,  "date": "2026-07-10", "firstKill": "2026-07-08", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+    { "guild": "silver-canticle",   "encounter": "nythraxis", "difficulty": "normal", "timeSeconds": 510, "roster": 10, "date": "2026-07-14", "firstKill": "2026-07-14", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "forgeborn-pact",    "encounter": "morthen", "difficulty": "normal", "timeSeconds": 161, "roster": 5, "date": "2026-06-21", "firstKill": "2026-04-02", "video": "https://youtu.be/demo-forg-morthen-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "morthen", "difficulty": "normal", "timeSeconds": 178, "roster": 5, "date": "2026-06-25", "firstKill": "2026-03-18", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "eclaireurs-du-val", "encounter": "morthen", "difficulty": "normal", "timeSeconds": 206, "roster": 5, "date": "2026-07-01", "firstKill": "2026-06-12", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "morthen", "difficulty": "heroic", "timeSeconds": 247, "roster": 5, "date": "2026-07-16", "firstKill": "2026-07-13", "video": "https://youtu.be/demo-cldr-morthen-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+    { "guild": "forgeborn-pact",    "encounter": "morthen", "difficulty": "heroic", "timeSeconds": 273, "roster": 5, "date": "2026-07-17", "firstKill": "2026-07-14", "video": "https://youtu.be/demo-forg-morthen-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "moonlit-tide",      "encounter": "vael", "difficulty": "normal", "timeSeconds": 175, "roster": 5, "date": "2026-06-30", "firstKill": "2026-04-20", "video": "https://youtu.be/demo-tide-vael-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "vael", "difficulty": "normal", "timeSeconds": 190, "roster": 5, "date": "2026-07-02", "firstKill": "2026-04-05", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "moonlit-tide",      "encounter": "vael", "difficulty": "heroic", "timeSeconds": 299, "roster": 5, "date": "2026-07-19", "firstKill": "2026-07-15", "video": "https://youtu.be/demo-tide-vael-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "la-clauderie",      "encounter": "korzul", "difficulty": "normal", "timeSeconds": 185, "roster": 5, "date": "2026-06-18", "firstKill": "2026-05-01", "video": "https://youtu.be/demo-cldr-korzul-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "thornpeak-vanguard", "encounter": "korzul", "difficulty": "normal", "timeSeconds": 202, "roster": 5, "date": "2026-06-22", "firstKill": "2026-04-28", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "thornpeak-vanguard", "encounter": "korzul", "difficulty": "heroic", "timeSeconds": 312, "roster": 5, "date": "2026-07-18", "firstKill": "2026-07-12", "video": "https://youtu.be/demo-thrn-korzul-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "korzul", "difficulty": "heroic", "timeSeconds": 340, "roster": 5, "date": "2026-07-20", "firstKill": "2026-07-17", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "silver-canticle",   "encounter": "ysolei", "difficulty": "normal", "timeSeconds": 198, "roster": 5, "date": "2026-07-05", "firstKill": "2026-06-20", "video": "https://youtu.be/demo-cant-ysolei-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "moonlit-tide",      "encounter": "ysolei", "difficulty": "normal", "timeSeconds": 213, "roster": 5, "date": "2026-07-08", "firstKill": "2026-06-25", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "silver-canticle",   "encounter": "ysolei", "difficulty": "heroic", "timeSeconds": 361, "roster": 5, "date": "2026-07-19", "firstKill": "2026-07-16", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "eclaireurs-du-val", "encounter": "thunzharr", "difficulty": "normal", "timeSeconds": 345, "roster": 14, "date": "2026-07-11", "firstKill": "2026-07-11", "video": "https://youtu.be/demo-eclr-thunzharr", "status": "verified", "patch": "v0.28.0", "demo": true },
+    { "guild": "forgeborn-pact",    "encounter": "thunzharr", "difficulty": "normal", "timeSeconds": 380, "roster": 9,  "date": "2026-07-13", "firstKill": "2026-07-13", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "eclaireurs-du-val", "encounter": "deacon-varric", "difficulty": "normal", "timeSeconds": 552, "roster": 2, "date": "2026-07-03", "firstKill": "2026-06-15", "video": "https://youtu.be/demo-eclr-varric-nm", "status": "verified", "patch": "v0.27.0", "demo": true },
+    { "guild": "la-clauderie",      "encounter": "deacon-varric", "difficulty": "normal", "timeSeconds": 605, "roster": 2, "date": "2026-07-07", "firstKill": "2026-06-22", "video": null, "status": "declared", "patch": "v0.27.0", "demo": true },
+    { "guild": "eclaireurs-du-val", "encounter": "deacon-varric", "difficulty": "heroic", "timeSeconds": 754, "roster": 2, "date": "2026-07-15", "firstKill": "2026-07-10", "video": "https://youtu.be/demo-eclr-varric-hm", "status": "verified", "patch": "v0.28.0", "demo": true },
+
+    { "guild": "la-clauderie",      "encounter": "sister-nhalia", "difficulty": "normal", "timeSeconds": 662, "roster": 2, "date": "2026-07-09", "firstKill": "2026-07-01", "video": null, "status": "declared", "patch": "v0.28.0", "demo": true }
+  ]
+}

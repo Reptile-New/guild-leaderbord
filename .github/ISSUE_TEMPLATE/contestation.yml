@@ -1,0 +1,30 @@
+name: "⚖️ Contestation"
+description: "Contester un record ou un résultat de tournoi (fenêtre de 7 jours — voir règlement)"
+title: "[Contestation] "
+labels: ["contestation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Rappel : une entrée « sur l'honneur » contestée doit produire une preuve, sinon elle est retirée.
+        Une entrée « vérifiée » contestée est re-relue par deux mainteneurs. Triche avérée = suspension une saison.
+  - type: input
+    id: cible
+    attributes:
+      label: "Entrée contestée (guilde + boss/tournoi + date)"
+      placeholder: "Thornpeak Vanguard — Nythraxis héroïque — 2026-07-19"
+    validations:
+      required: true
+  - type: textarea
+    id: motif
+    attributes:
+      label: "Motif et éléments"
+      description: "Pourquoi ce résultat vous paraît invalide (incohérence de temps, effectif, version du jeu, montage vidéo…)."
+    validations:
+      required: true
+  - type: input
+    id: guilde
+    attributes:
+      label: "Votre guilde"
+    validations:
+      required: true

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title data-en="PvP circuit — WoCC Guild Boards">Circuit PvP — Boards des Guildes</title>
+<meta name="description" content="Le classement PvP des guildes de World of ClaudeCraft : points du circuit de tournois et meilleures cotes des ladders 1v1 et 2v2.">
+<meta name="theme-color" content="#4ea8de">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><polygon points=%2750,0 100,16 100,60 50,100 0,60 0,16%27 fill=%27%234ea8de%27/><text x=%2750%27 y=%2772%27 font-size=%2752%27 text-anchor=%27middle%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%230a1622%27>B</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="pvp">
+
+<header class="topbar">
+  <div class="row">
+    <a class="brand" href="index.html"><span class="sigil">B</span><b data-en="WoCC Guild Boards">Boards des Guildes</b></a>
+    <nav class="topnav" data-boards-nav data-current="pvp"></nav>
+  </div>
+</header>
+
+<div class="demo-banner" data-demo-banner></div>
+
+<main>
+  <div class="wrap">
+    <section class="hero" style="padding-bottom:10px">
+      <h1 data-en="PvP circuit">Circuit PvP</h1>
+      <p data-en="Guild PvP ranking driven by tournament placements — plus the best in-game ladder ratings (1v1 &amp; 2v2 ranked) claimed by each guild.">Le classement PvP des guildes, alimenté par les placements en tournoi — plus les meilleures cotes des ladders en jeu (1v1 et 2v2 classés) revendiquées par chaque guilde.</p>
+    </section>
+
+    <section>
+      <h2 data-en="Tournament circuit">Circuit des <span class="em">tournois</span></h2>
+      <p class="section-sub" data-en="Points earned across inter-guild tournaments (major: 100/60/45/35/20 — standard: 50/30/22/18/10). Computed automatically from tournament results.">Points cumulés sur les tournois inter-guildes (majeur : 100/60/45/35/20 — standard : 50/30/22/18/10). Calculés automatiquement depuis les résultats des tournois.</p>
+      <div class="table-scroll" data-pvp-circuit></div>
+    </section>
+
+    <section>
+      <h2 data-en="In-game ladders">Ladders <span class="em">en jeu</span></h2>
+      <p class="section-sub" data-en="Best rating per guild on the ranked ladders (declared by guild masters, screenshot/video for verification). Informative — does not feed the circuit points.">Meilleure cote par guilde sur les ladders classés (déclarée par les maîtres de guilde, capture/vidéo pour vérification). Informatif — n'alimente pas les points du circuit.</p>
+      <div data-pvp-ladders></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-en="WoCC Guild Boards — a community project.">Boards des Guildes — projet communautaire.</span>
+    <a href="https://github.com/Reptile-New/guild-leaderbord" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

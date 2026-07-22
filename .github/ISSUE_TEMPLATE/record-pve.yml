@@ -1,0 +1,76 @@
+name: "⚔️ Record PvE"
+description: "Soumettre un temps de kill (raid, donjon, gouffre, boss mondial) — data/pve-records.json"
+title: "[Record] "
+labels: ["record-pve"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Rappel du règlement** : une soumission avec vidéo relue = badge « ✔ Vérifié » et priorité au classement.
+        Sans vidéo = « ✎ Sur l'honneur » : listée, mais toujours derrière les entrées vérifiées, et jamais « Record du serveur ».
+        La vidéo doit montrer le combat en entier (du pull au kill), sans coupe.
+  - type: input
+    id: guilde
+    attributes:
+      label: "Guilde (déjà inscrite sur les Boards)"
+      placeholder: "La Clauderie"
+    validations:
+      required: true
+  - type: dropdown
+    id: rencontre
+    attributes:
+      label: "Rencontre"
+      options:
+        - "Nythraxis, Scourge of Thornpeak — raid 10 joueurs"
+        - "Morthen the Gravecaller — The Hollow Crypt (5)"
+        - "Vael the Fogbinder — The Sunken Bastion (5)"
+        - "Korzul the Gravewyrm — Gravewyrm Sanctum (5)"
+        - "Ysolei, Avatar of the Drowned Moon — The Drowned Temple (5)"
+        - "Thunzharr, the Waking Peak — boss mondial"
+        - "Deacon Varric — The Collapsed Reliquary (gouffre, 2)"
+        - "Sister Nhalia — The Drowned Litany (gouffre, 2)"
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulte
+    attributes:
+      label: "Difficulté"
+      options: ["Normal", "Héroïque"]
+    validations:
+      required: true
+  - type: input
+    id: temps
+    attributes:
+      label: "Temps (mm:ss, du pull au kill — gouffre complet pour les gouffres)"
+      placeholder: "8:12"
+    validations:
+      required: true
+  - type: input
+    id: effectif
+    attributes:
+      label: "Effectif (nombre de joueurs)"
+      placeholder: "10"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: "Date du kill (AAAA-MM-JJ)"
+      placeholder: "2026-07-18"
+    validations:
+      required: true
+  - type: input
+    id: premier
+    attributes:
+      label: "Date du tout premier kill de votre guilde sur ce boss/difficulté (si différente)"
+      placeholder: "2026-07-12"
+  - type: input
+    id: video
+    attributes:
+      label: "Lien vidéo (YouTube, Twitch VOD… — fortement recommandé)"
+      placeholder: "https://youtu.be/…"
+  - type: input
+    id: version
+    attributes:
+      label: "Version du jeu"
+      placeholder: "v0.28.0"

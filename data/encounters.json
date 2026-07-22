@@ -1,0 +1,84 @@
+{
+  "_aide": "Référentiel du contenu PvE, extrait de la knowledge base WoCC (Reptile-New/wocc-knowledge-base). Mettre à jour à chaque MAJ du jeu qui ajoute un boss, un donjon, un gouffre ou un mode héroïque. Le champ `patch` indique la version du jeu sur laquelle ce référentiel est aligné.",
+  "patch": "v0.28.0",
+  "categories": [
+    { "id": "raid",    "fr": "Raids",         "en": "Raids" },
+    { "id": "dungeon", "fr": "Donjons",       "en": "Dungeons" },
+    { "id": "world",   "fr": "Boss mondiaux", "en": "World bosses" },
+    { "id": "delve",   "fr": "Gouffres",      "en": "Delves" }
+  ],
+  "encounters": [
+    {
+      "id": "nythraxis",
+      "boss": "Nythraxis, Scourge of Thornpeak",
+      "instance": "Nythraxis Raid Arena",
+      "category": "raid",
+      "players": 10,
+      "difficulties": ["normal", "heroic"],
+      "objective": "kill"
+    },
+    {
+      "id": "morthen",
+      "boss": "Morthen the Gravecaller",
+      "instance": "The Hollow Crypt",
+      "category": "dungeon",
+      "players": 5,
+      "difficulties": ["normal", "heroic"],
+      "objective": "kill"
+    },
+    {
+      "id": "vael",
+      "boss": "Vael the Fogbinder",
+      "instance": "The Sunken Bastion",
+      "category": "dungeon",
+      "players": 5,
+      "difficulties": ["normal", "heroic"],
+      "objective": "kill"
+    },
+    {
+      "id": "korzul",
+      "boss": "Korzul the Gravewyrm",
+      "instance": "Gravewyrm Sanctum",
+      "category": "dungeon",
+      "players": 5,
+      "difficulties": ["normal", "heroic"],
+      "objective": "kill"
+    },
+    {
+      "id": "ysolei",
+      "boss": "Ysolei, Avatar of the Drowned Moon",
+      "instance": "The Drowned Temple",
+      "category": "dungeon",
+      "players": 5,
+      "difficulties": ["normal", "heroic"],
+      "objective": "kill"
+    },
+    {
+      "id": "thunzharr",
+      "boss": "Thunzharr, the Waking Peak",
+      "instance": "Waking Peak (monde ouvert)",
+      "category": "world",
+      "players": null,
+      "difficulties": ["normal"],
+      "objective": "kill"
+    },
+    {
+      "id": "deacon-varric",
+      "boss": "Deacon Varric",
+      "instance": "The Collapsed Reliquary",
+      "category": "delve",
+      "players": 2,
+      "difficulties": ["normal", "heroic"],
+      "objective": "clear"
+    },
+    {
+      "id": "sister-nhalia",
+      "boss": "Sister Nhalia, the Drowned Canticle",
+      "instance": "The Drowned Litany",
+      "category": "delve",
+      "players": 2,
+      "difficulties": ["normal", "heroic"],
+      "objective": "clear"
+    }
+  ]
+}

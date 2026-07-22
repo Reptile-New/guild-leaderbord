@@ -1,0 +1,202 @@
+{
+  "_aide": "Tournois du circuit PvP inter-guildes. Formats gérés : single_elim (élimination directe), double_elim (double élimination : winners + losers bracket), round_robin (poules, avec phase finale optionnelle), swiss (système suisse). tier : 'major' ou 'standard' — détermine les points du circuit (voir reglement.html). Les placements ('placements') alimentent automatiquement le classement PvP des guildes. status : 'open' (inscriptions), 'ongoing', 'finished'.",
+  "_demo": true,
+  "tournaments": [
+    {
+      "id": "vale-cup-ete-2026",
+      "name": "Vale Cup — Été 2026",
+      "mode": "2v2",
+      "format": "single_elim",
+      "tier": "major",
+      "status": "finished",
+      "date": "2026-07-05",
+      "organizer": "Boards des Guildes",
+      "demo": true,
+      "teams": [
+        { "id": "cldr-a", "guild": "la-clauderie",      "name": "Clauderie Alpha" },
+        { "id": "cldr-b", "guild": "la-clauderie",      "name": "Clauderie Beta" },
+        { "id": "thrn-a", "guild": "thornpeak-vanguard", "name": "Peak Breakers" },
+        { "id": "forg-a", "guild": "forgeborn-pact",    "name": "Forge Twins" },
+        { "id": "forg-b", "guild": "forgeborn-pact",    "name": "Forge Cadets" },
+        { "id": "tide-a", "guild": "moonlit-tide",      "name": "Tide Duo" },
+        { "id": "cant-a", "guild": "silver-canticle",   "name": "Canticle Choir" },
+        { "id": "eclr-a", "guild": "eclaireurs-du-val", "name": "Val Riders" }
+      ],
+      "rounds": [
+        {
+          "fr": "Quarts de finale", "en": "Quarterfinals",
+          "matches": [
+            { "a": "cldr-a", "b": "forg-b", "scoreA": 2, "scoreB": 0 },
+            { "a": "tide-a", "b": "cant-a", "scoreA": 2, "scoreB": 1 },
+            { "a": "thrn-a", "b": "eclr-a", "scoreA": 2, "scoreB": 0 },
+            { "a": "forg-a", "b": "cldr-b", "scoreA": 2, "scoreB": 1 }
+          ]
+        },
+        {
+          "fr": "Demi-finales", "en": "Semifinals",
+          "matches": [
+            { "a": "cldr-a", "b": "tide-a", "scoreA": 2, "scoreB": 1 },
+            { "a": "thrn-a", "b": "forg-a", "scoreA": 2, "scoreB": 0 }
+          ]
+        },
+        {
+          "fr": "Finale", "en": "Grand final",
+          "matches": [
+            { "a": "thrn-a", "b": "cldr-a", "scoreA": 2, "scoreB": 1 }
+          ]
+        }
+      ],
+      "bronze": { "a": "tide-a", "b": "forg-a", "scoreA": 2, "scoreB": 0 },
+      "placements": [
+        { "guild": "thornpeak-vanguard", "place": 1 },
+        { "guild": "la-clauderie",      "place": 2 },
+        { "guild": "moonlit-tide",      "place": 3 },
+        { "guild": "forgeborn-pact",    "place": 4 },
+        { "guild": "silver-canticle",   "place": 5 },
+        { "guild": "eclaireurs-du-val", "place": 5 }
+      ]
+    },
+    {
+      "id": "grand-prix-fiesta-juin-2026",
+      "name": "Grand Prix Fiesta — Juin 2026",
+      "mode": "Fiesta",
+      "format": "round_robin",
+      "tier": "standard",
+      "status": "finished",
+      "date": "2026-06-14",
+      "organizer": "Moonlit Tide",
+      "demo": true,
+      "teams": [
+        { "id": "cldr", "guild": "la-clauderie",      "name": "La Clauderie" },
+        { "id": "thrn", "guild": "thornpeak-vanguard", "name": "Thornpeak Vanguard" },
+        { "id": "cant", "guild": "silver-canticle",   "name": "Silver Canticle" },
+        { "id": "forg", "guild": "forgeborn-pact",    "name": "The Forgeborn Pact" },
+        { "id": "tide", "guild": "moonlit-tide",      "name": "Moonlit Tide" },
+        { "id": "eclr", "guild": "eclaireurs-du-val", "name": "Les Éclaireurs du Val" }
+      ],
+      "pools": [
+        {
+          "name": "Poule A",
+          "teams": ["cldr", "thrn", "cant"],
+          "matches": [
+            { "a": "thrn", "b": "cldr", "scoreA": 264, "scoreB": 231 },
+            { "a": "cldr", "b": "cant", "scoreA": 248, "scoreB": 197 },
+            { "a": "thrn", "b": "cant", "scoreA": 255, "scoreB": 180 }
+          ]
+        },
+        {
+          "name": "Poule B",
+          "teams": ["forg", "tide", "eclr"],
+          "matches": [
+            { "a": "tide", "b": "forg", "scoreA": 271, "scoreB": 240 },
+            { "a": "forg", "b": "eclr", "scoreA": 233, "scoreB": 205 },
+            { "a": "tide", "b": "eclr", "scoreA": 289, "scoreB": 188 }
+          ]
+        }
+      ],
+      "playoffs": [
+        {
+          "fr": "Demi-finales", "en": "Semifinals",
+          "matches": [
+            { "a": "thrn", "b": "forg", "scoreA": 259, "scoreB": 214 },
+            { "a": "tide", "b": "cldr", "scoreA": 266, "scoreB": 249 }
+          ]
+        },
+        {
+          "fr": "Petite finale", "en": "Bronze match",
+          "matches": [
+            { "a": "cldr", "b": "forg", "scoreA": 252, "scoreB": 237 }
+          ]
+        },
+        {
+          "fr": "Finale", "en": "Grand final",
+          "matches": [
+            { "a": "tide", "b": "thrn", "scoreA": 278, "scoreB": 270 }
+          ]
+        }
+      ],
+      "placements": [
+        { "guild": "moonlit-tide",      "place": 1 },
+        { "guild": "thornpeak-vanguard", "place": 2 },
+        { "guild": "la-clauderie",      "place": 3 },
+        { "guild": "forgeborn-pact",    "place": 4 },
+        { "guild": "silver-canticle",   "place": 5 },
+        { "guild": "eclaireurs-du-val", "place": 5 }
+      ]
+    },
+    {
+      "id": "ronde-de-thornpeak-mai-2026",
+      "name": "Ronde de Thornpeak — Mai 2026",
+      "mode": "1v1",
+      "format": "swiss",
+      "tier": "standard",
+      "status": "finished",
+      "date": "2026-05-24",
+      "organizer": "Thornpeak Vanguard",
+      "demo": true,
+      "teams": [
+        { "id": "yumiko", "guild": "la-clauderie",      "name": "Yumiko" },
+        { "id": "maelis", "guild": "la-clauderie",      "name": "Maelis" },
+        { "id": "brakka", "guild": "thornpeak-vanguard", "name": "Brakka" },
+        { "id": "selune", "guild": "moonlit-tide",      "name": "Selune" },
+        { "id": "kordan", "guild": "forgeborn-pact",    "name": "Kordan" },
+        { "id": "torvo",  "guild": "forgeborn-pact",    "name": "Torvo" },
+        { "id": "nhalim", "guild": "silver-canticle",   "name": "Nhalim" },
+        { "id": "perrin", "guild": "eclaireurs-du-val", "name": "Perrin" }
+      ],
+      "rounds": [
+        {
+          "fr": "Ronde 1", "en": "Round 1",
+          "matches": [
+            { "a": "yumiko", "b": "brakka", "scoreA": 2, "scoreB": 1 },
+            { "a": "selune", "b": "kordan", "scoreA": 2, "scoreB": 0 },
+            { "a": "nhalim", "b": "perrin", "scoreA": 2, "scoreB": 1 },
+            { "a": "maelis", "b": "torvo",  "scoreA": 2, "scoreB": 0 }
+          ]
+        },
+        {
+          "fr": "Ronde 2", "en": "Round 2",
+          "matches": [
+            { "a": "yumiko", "b": "selune", "scoreA": 2, "scoreB": 0 },
+            { "a": "nhalim", "b": "maelis", "scoreA": 2, "scoreB": 1 },
+            { "a": "brakka", "b": "kordan", "scoreA": 2, "scoreB": 1 },
+            { "a": "perrin", "b": "torvo",  "scoreA": 2, "scoreB": 0 }
+          ]
+        },
+        {
+          "fr": "Ronde 3", "en": "Round 3",
+          "matches": [
+            { "a": "yumiko", "b": "nhalim", "scoreA": 2, "scoreB": 0 },
+            { "a": "selune", "b": "maelis", "scoreA": 2, "scoreB": 1 },
+            { "a": "brakka", "b": "perrin", "scoreA": 2, "scoreB": 0 },
+            { "a": "kordan", "b": "torvo",  "scoreA": 2, "scoreB": 1 }
+          ]
+        }
+      ],
+      "placements": [
+        { "guild": "la-clauderie",      "place": 1 },
+        { "guild": "silver-canticle",   "place": 2 },
+        { "guild": "moonlit-tide",      "place": 3 },
+        { "guild": "thornpeak-vanguard", "place": 4 }
+      ]
+    },
+    {
+      "id": "protect-yumi-invitational-aout-2026",
+      "name": "Protect Yumi Invitational — Août 2026",
+      "mode": "Protect Yumi 3v3",
+      "format": "double_elim",
+      "tier": "major",
+      "status": "open",
+      "date": "2026-08-15",
+      "organizer": "Boards des Guildes",
+      "demo": true,
+      "registration": "https://github.com/Reptile-New/guild-leaderbord/issues/new?template=tournoi.yml",
+      "teams": [
+        { "id": "cldr", "guild": "la-clauderie",      "name": "Clauderie Escorte" },
+        { "id": "thrn", "guild": "thornpeak-vanguard", "name": "Peak Wardens" }
+      ],
+      "rounds": [],
+      "placements": []
+    }
+  ]
+}
