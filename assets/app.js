@@ -1,101 +1,60 @@
-/* Boards des Guildes — application (vanilla JS, aucune dépendance).
-   Tout est calculé côté client à partir de data/*.json :
-   - classements PvE : tri « vérifié d'abord, puis temps » (voir reglement.html)
-   - circuit PvP : points dérivés des placements de tournois
-   - score composite (accueil) : points PvE + points circuit
-   Bilingue : FR par défaut, EN via le bouton de nav (attributs data-en + dict T). */
+/* WoCC Guild Boards — application (vanilla JS, no dependencies).
+   Everything is computed client-side from data/*.json:
+   - PvE boards: "verified first, then time" ordering (see rules page)
+   - PvP circuit: points derived from tournament placements
+   - overall score (home): PvE points + circuit points
+   i18n: English is the base language (inline in HTML); other languages live in
+   assets/i18n.js (data-i18n attributes + the t() helper). The picker defaults
+   to the browser language when we have it, English otherwise. */
 
 (() => {
   "use strict";
 
   /* ---------- i18n ---------- */
+  const I18N = window.I18N || { default: "en", languages: { en: "English" }, locales: { en: "en-GB" }, strings: {} };
   const LANG_KEY = "boards-lang";
-  let lang = (() => {
+  const LANGS = Object.keys(I18N.languages);
+
+  function detectLang() {
     const p = new URLSearchParams(location.search).get("lang");
-    if (p === "en" || p === "fr") { try { localStorage.setItem(LANG_KEY, p); } catch (e) {} return p; }
-    try { return localStorage.getItem(LANG_KEY) === "en" ? "en" : "fr"; } catch (e) { return "fr"; }
-  })();
+    if (p && LANGS.includes(p)) { try { localStorage.setItem(LANG_KEY, p); } catch (e) {} return p; }
+    try {
+      const saved = localStorage.getItem(LANG_KEY);
+      if (saved && LANGS.includes(saved)) return saved;
+    } catch (e) {}
+    for (const nav of (navigator.languages || [navigator.language || "en"])) {
+      const code = String(nav).slice(0, 2).toLowerCase();
+      if (LANGS.includes(code)) return code;
+    }
+    return I18N.default || "en";
+  }
+  let lang = detectLang();
 
-  const T = {
-    rank:        { fr: "Rang", en: "Rank" },
-    guild:       { fr: "Guilde", en: "Guild" },
-    time:        { fr: "Temps", en: "Time" },
-    roster:      { fr: "Effectif", en: "Roster" },
-    date:        { fr: "Date", en: "Date" },
-    firstKill:   { fr: "Premier kill", en: "First kill" },
-    proof:       { fr: "Preuve", en: "Proof" },
-    verified:    { fr: "Vérifié", en: "Verified" },
-    declared:    { fr: "Sur l'honneur", en: "On honor" },
-    serverRecord:{ fr: "Record du serveur", en: "Server record" },
-    watch:       { fr: "Voir la vidéo", en: "Watch video" },
-    members:     { fr: "Membres", en: "Members" },
-    avgLevel:    { fr: "Niv. moyen", en: "Avg level" },
-    totalXp:     { fr: "XP totale", en: "Total XP" },
-    since:       { fr: "Fondée le", en: "Founded" },
-    region:      { fr: "Région", en: "Region" },
-    points:      { fr: "Points", en: "Points" },
-    pvePts:      { fr: "Pts PvE", en: "PvE pts" },
-    circuitPts:  { fr: "Pts circuit PvP", en: "PvP circuit pts" },
-    total:       { fr: "Total", en: "Total" },
-    noRecords:   { fr: "Aucun record soumis — soyez les premiers !", en: "No record submitted — be the first!" },
-    player:      { fr: "Joueur(s)", en: "Player(s)" },
-    rating:      { fr: "Cote", en: "Rating" },
-    normal:      { fr: "Normal", en: "Normal" },
-    heroic:      { fr: "Héroïque", en: "Heroic" },
-    players:     { fr: "joueurs", en: "players" },
-    openWorld:   { fr: "monde ouvert", en: "open world" },
-    clearNote:   { fr: "temps sur le gouffre complet", en: "full delve clear time" },
-    wins:        { fr: "V", en: "W" },
-    losses:      { fr: "D", en: "L" },
-    diff:        { fr: "Diff.", en: "Diff." },
-    played:      { fr: "J", en: "P" },
-    standings:   { fr: "Classement", en: "Standings" },
-    poolPhase:   { fr: "Phase de poules", en: "Group stage" },
-    playoffs:    { fr: "Phase finale", en: "Playoffs" },
-    rounds:      { fr: "Rondes", en: "Rounds" },
-    bronzeMatch: { fr: "Petite finale", en: "Bronze match" },
-    registered:  { fr: "Équipes inscrites", en: "Registered teams" },
-    registerCta: { fr: "Inscrire mon équipe", en: "Register my team" },
-    statusOpen:  { fr: "Inscriptions ouvertes", en: "Registration open" },
-    statusOngoing:{ fr: "En cours", en: "Ongoing" },
-    statusDone:  { fr: "Terminé", en: "Finished" },
-    tierMajor:   { fr: "Majeur", en: "Major" },
-    tierStandard:{ fr: "Standard", en: "Standard" },
-    fmtSingle:   { fr: "Élimination directe", en: "Single elimination" },
-    fmtDouble:   { fr: "Double élimination", en: "Double elimination" },
-    fmtRR:       { fr: "Poules (round robin)", en: "Round robin (pools)" },
-    fmtSwiss:    { fr: "Système suisse", en: "Swiss system" },
-    organizer:   { fr: "Organisé par", en: "Hosted by" },
-    mode:        { fr: "Mode", en: "Mode" },
-    demoBanner:  { fr: "⚠ Données de démonstration — le circuit attend ses premières soumissions officielles. Votre guilde peut s'inscrire dès maintenant (voir Règlement).",
-                   en: "⚠ Demo data — the boards are awaiting their first official submissions. Your guild can register now (see Rules)." },
-    latestRecords:{ fr: "Derniers records", en: "Latest records" },
-    nextTourney: { fr: "Prochain tournoi", en: "Next tournament" },
-    statGuilds:  { fr: "guildes inscrites", en: "registered guilds" },
-    statRecords: { fr: "records soumis", en: "records submitted" },
-    statVerified:{ fr: "records vérifiés", en: "verified records" },
-    statTourneys:{ fr: "tournois du circuit", en: "circuit tournaments" },
-    seeAll:      { fr: "Voir tout", en: "See all" },
-    ladders:     { fr: "Ladders en jeu (meilleures cotes par guilde)", en: "In-game ladders (best ratings per guild)" },
-    circuit:     { fr: "Circuit des tournois", en: "Tournament circuit" },
-    circuitSub:  { fr: "Points cumulés sur les tournois inter-guildes (majeur : 100/60/45/35/20 — standard : 50/30/22/18/10).",
-                   en: "Points earned across inter-guild tournaments (major: 100/60/45/35/20 — standard: 50/30/22/18/10)." },
-    all:         { fr: "Tout", en: "All" },
-    sortBy:      { fr: "Trier par", en: "Sort by" },
-    seniority:   { fr: "Ancienneté", en: "Seniority" },
-    bestTimeNote:{ fr: "Meilleur temps par guilde. Les entrées vérifiées (vidéo) passent toujours devant les déclarées.",
-                   en: "Best time per guild. Verified entries (video) always rank above declared ones." },
+  const t = (k) => {
+    const s = I18N.strings[k];
+    return s ? (s[lang] ?? s.en ?? k) : k;
   };
-  const t = (k) => (T[k] ? T[k][lang] : k);
 
-  /* ---------- Nav (source de vérité unique) ---------- */
+  /* Static texts: English inline in the HTML, translations applied via data-i18n. */
+  const enCache = new Map();
+  function applyStaticLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.dataset.i18n;
+      if (!enCache.has(key)) enCache.set(key, el.innerHTML);
+      const s = I18N.strings[key];
+      el.innerHTML = (s && s[lang] != null) ? s[lang] : enCache.get(key);
+    });
+  }
+
+  /* ---------- Nav (single source of truth) ---------- */
   const NAV = [
-    { id: "home",     href: "index.html",      fr: "Accueil",   en: "Home" },
-    { id: "guilds",   href: "guildes.html",    fr: "Guildes",   en: "Guilds" },
-    { id: "pve",      href: "pve.html",        fr: "PvE",       en: "PvE" },
-    { id: "pvp",      href: "pvp.html",        fr: "PvP",       en: "PvP" },
-    { id: "tourneys", href: "tournois.html",   fr: "Tournois",  en: "Tournaments" },
-    { id: "rules",    href: "reglement.html",  fr: "Règlement", en: "Rules" },
+    { id: "home",     href: "index.html",     key: "nav.home" },
+    { id: "guilds",   href: "guildes.html",   key: "nav.guilds" },
+    { id: "pve",      href: "pve.html",       key: "nav.pve" },
+    { id: "pvp",      href: "pvp.html",       key: "nav.pvp" },
+    { id: "tourneys", href: "tournois.html",  key: "nav.tourneys" },
+    { id: "rules",    href: "reglement.html", key: "nav.rules" },
   ];
 
   function renderNav() {
@@ -103,23 +62,16 @@
     if (!nav) return;
     const cur = nav.dataset.current;
     nav.innerHTML = NAV.map(item =>
-      `<a href="${item.href}"${item.id === cur ? ' class="cur"' : ""}>${item[lang]}</a>`
-    ).join("") + `<button type="button" class="lang-btn" data-lang-toggle>${lang === "fr" ? "EN" : "FR"}</button>`;
-    nav.querySelector("[data-lang-toggle]").addEventListener("click", () => {
-      lang = lang === "fr" ? "en" : "fr";
-      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      `<a href="${item.href}"${item.id === cur ? ' class="cur"' : ""}>${t(item.key)}</a>`
+    ).join("") + `<select class="lang-btn" data-lang-select aria-label="Language">${
+      LANGS.map(l => `<option value="${l}"${l === lang ? " selected" : ""}>${I18N.languages[l]}</option>`).join("")
+    }</select>`;
+    nav.querySelector("[data-lang-select]").addEventListener("change", (e) => {
+      lang = e.target.value;
+      try { localStorage.setItem(LANG_KEY, lang); } catch (err) {}
       applyStaticLang();
       renderNav();
       renderPage();
-    });
-  }
-
-  /* Textes statiques : FR dans le HTML, EN dans data-en (convention La Clauderie). */
-  function applyStaticLang() {
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-en]").forEach(el => {
-      if (!el.dataset.fr) el.dataset.fr = el.textContent;
-      el.textContent = lang === "en" ? el.dataset.en : el.dataset.fr;
     });
   }
 
@@ -128,15 +80,17 @@
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   function fmtTime(sec) {
+    if (sec == null) return "—";
     const m = Math.floor(sec / 60), s = sec % 60;
     return `${m}:${String(s).padStart(2, "0")}`;
   }
+  const locale = () => I18N.locales[lang] || "en-GB";
   function fmtDate(iso) {
     if (!iso) return "—";
     const d = new Date(iso + "T00:00:00");
-    return d.toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "short", year: "numeric" });
+    return d.toLocaleDateString(locale(), { day: "numeric", month: "short", year: "numeric" });
   }
-  const fmtInt = (n) => n.toLocaleString(lang === "fr" ? "fr-FR" : "en-GB");
+  const fmtInt = (n) => n == null ? "—" : n.toLocaleString(locale());
 
   const statusBadge = (st) => st === "verified"
     ? `<span class="badge verified">✔ ${t("verified")}</span>`
@@ -149,7 +103,7 @@
     return `<span class="gname">${esc(g.name)}</span><span class="gtag">${esc(g.tag)}</span>`;
   }
 
-  /* ---------- Données ---------- */
+  /* ---------- Data ---------- */
   let DB = null;
   async function loadData() {
     const files = ["guilds", "encounters", "pve-records", "pvp", "tournaments"];
@@ -166,18 +120,21 @@
   }
 
   /* ---------- Scoring ---------- */
-  const PVE_POINTS = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];       // barème F1 par tableau (boss × difficulté)
+  const PVE_POINTS = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];       // F1 scale per board (boss × difficulty)
   const CIRCUIT_POINTS = {
-    major:    { 1: 100, 2: 60, 3: 45, 4: 35, 5: 20 },           // 5 = 5e-8e
+    major:    { 1: 100, 2: 60, 3: 45, 4: 35, 5: 20 },           // 5 = 5th–8th
     standard: { 1: 50,  2: 30, 3: 22, 4: 18, 5: 10 },
   };
 
-  /* Comparateur officiel : vérifié d'abord, puis temps croissant, puis date de record. */
+  /* Official comparator: verified first, then timed before untimed, then time
+     ascending, then earliest first kill. */
   const cmpRecords = (a, b) =>
     (a.status === "verified" ? 0 : 1) - (b.status === "verified" ? 0 : 1) ||
-    a.timeSeconds - b.timeSeconds || (a.date < b.date ? -1 : 1);
+    (a.timeSeconds == null ? 1 : 0) - (b.timeSeconds == null ? 1 : 0) ||
+    (a.timeSeconds ?? 0) - (b.timeSeconds ?? 0) ||
+    String(a.firstKill || a.date).localeCompare(String(b.firstKill || b.date));
 
-  /* Un tableau = un couple (encounter, difficulty) ; une ligne = le meilleur essai de chaque guilde. */
+  /* One board = one (encounter, difficulty) pair; one row = each guild's best attempt. */
   function boardRows(encId, diff) {
     const per = {};
     DB.records.filter(r => r.encounter === encId && r.difficulty === diff)
@@ -219,7 +176,7 @@
     })).sort((a, b) => b.total - a.total || b.pve - a.pve || a.guild.name.localeCompare(b.guild.name));
   }
 
-  /* ---------- Rendu : accueil ---------- */
+  /* ---------- Render: home ---------- */
   function renderHome() {
     const stats = document.querySelector("[data-home-stats]");
     if (stats) {
@@ -247,7 +204,9 @@
     const latest = document.querySelector("[data-home-latest]");
     if (latest) {
       const rows = [...DB.records].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
-      latest.innerHTML = `<table class="board">
+      latest.innerHTML = rows.length === 0
+        ? `<p class="section-sub" style="margin:4px 2px">${t("noLatest")}</p>`
+        : `<table class="board">
         <thead><tr><th>${t("date")}</th><th>${t("guild")}</th><th>Boss</th><th class="num">${t("time")}</th><th>${t("proof")}</th></tr></thead>
         <tbody>${rows.map(r => {
           const e = DB.encounters.encounters.find(x => x.id === r.encounter);
@@ -255,6 +214,7 @@
             <td>${esc(e ? e.boss : r.encounter)} <span class="gtag">${t(r.difficulty)}</span></td>
             <td class="num mono">${fmtTime(r.timeSeconds)}</td><td>${statusBadge(r.status)}</td></tr>`;
         }).join("")}</tbody></table>`;
+      latest.classList.toggle("table-scroll", rows.length > 0);
     }
 
     const next = document.querySelector("[data-home-next]");
@@ -263,17 +223,18 @@
       next.innerHTML = tn ? `<div class="card">
         <div class="tourney-head"><h3>${esc(tn.name)}</h3>
           <span class="badge open">${tn.status === "open" ? t("statusOpen") : t("statusOngoing")}</span></div>
-        <p class="tourney-meta">${t("mode")} : ${esc(tn.mode)} · ${t(fmtKey(tn.format))} · ${fmtDate(tn.date)} · ${t("organizer")} ${esc(tn.organizer)}</p>
-        <a class="register-cta" href="tournois.html#${esc(tn.id)}">${t("seeAll")} →</a></div>` : "";
+        <p class="tourney-meta">${t("mode")}: ${esc(tn.mode)} · ${t(fmtKey(tn.format))} · ${fmtDate(tn.date)} · ${t("organizer")} ${esc(tn.organizer)}</p>
+        <a class="register-cta" href="tournois.html#${esc(tn.id)}">${t("seeAll")} →</a></div>`
+        : `<p class="section-sub" style="margin:4px 2px">${t("noTourney")}</p>`;
     }
   }
 
-  /* ---------- Rendu : guildes ---------- */
+  /* ---------- Render: guilds ---------- */
   const GUILD_SORTS = [
-    { id: "members", label: () => t("members"),  val: g => g.members },
-    { id: "xp",      label: () => t("totalXp"),  val: g => g.totalXp },
-    { id: "level",   label: () => t("avgLevel"), val: g => g.avgLevel },
-    { id: "age",     label: () => t("seniority"), val: g => -new Date(g.created).getTime() },
+    { id: "members", label: () => t("members"),   val: g => g.members ?? -1 },
+    { id: "xp",      label: () => t("totalXp"),   val: g => g.totalXp ?? -1 },
+    { id: "level",   label: () => t("avgLevel"),  val: g => g.avgLevel ?? -1 },
+    { id: "age",     label: () => t("seniority"), val: g => g.created ? -new Date(g.created).getTime() : -Infinity },
   ];
   let guildSort = "members";
 
@@ -282,7 +243,7 @@
     const host = document.querySelector("[data-guild-table]");
     if (!host) return;
     if (chips) {
-      chips.innerHTML = `<span style="align-self:center;color:var(--faint);font-size:0.82rem">${t("sortBy")} :</span>` +
+      chips.innerHTML = `<span style="align-self:center;color:var(--faint);font-size:0.82rem">${t("sortBy")}:</span>` +
         GUILD_SORTS.map(s => `<button type="button" class="chip${s.id === guildSort ? " on" : ""}" data-sort="${s.id}">${s.label()}</button>`).join("");
       chips.querySelectorAll("[data-sort]").forEach(b =>
         b.addEventListener("click", () => { guildSort = b.dataset.sort; renderGuilds(); }));
@@ -297,11 +258,11 @@
         <td>${rankCell(i)}</td>
         <td>${guildCell(g)}<span class="gsub">${esc(g.motto || "")}${g.site ? ` · <a class="video-link" href="${esc(g.site)}">${esc(g.site.replace(/^https?:\/\//, ""))}</a>` : ""}</span></td>
         <td>${esc(g.region)} <span class="gtag">${esc((g.lang || "").toUpperCase())}</span></td>
-        <td class="num">${g.members}</td><td class="num">${g.avgLevel}</td>
+        <td class="num">${fmtInt(g.members)}</td><td class="num">${fmtInt(g.avgLevel)}</td>
         <td class="num mono">${fmtInt(g.totalXp)}</td><td>${fmtDate(g.created)}</td></tr>`).join("")}</tbody></table>`;
   }
 
-  /* ---------- Rendu : PvE ---------- */
+  /* ---------- Render: PvE ---------- */
   let pveCat = "all";
 
   function renderPve() {
@@ -310,8 +271,8 @@
     if (!host) return;
     const cats = DB.encounters.categories;
     if (chips) {
-      chips.innerHTML = [{ id: "all", fr: t("all"), en: t("all") }, ...cats].map(c =>
-        `<button type="button" class="chip${c.id === pveCat ? " on" : ""}" data-cat="${c.id}">${c.id === "all" ? t("all") : c[lang]}</button>`).join("");
+      chips.innerHTML = [{ id: "all" }, ...cats].map(c =>
+        `<button type="button" class="chip${c.id === pveCat ? " on" : ""}" data-cat="${c.id}">${c.id === "all" ? t("all") : (c[lang] || c.en)}</button>`).join("");
       chips.querySelectorAll("[data-cat]").forEach(b =>
         b.addEventListener("click", () => { pveCat = b.dataset.cat; renderPve(); }));
     }
@@ -331,7 +292,7 @@
                 return `<tr><td>${rankCell(i)}</td>
                   <td>${guildCell(DB.guildById[r.guild])}${isRecord ? ` <span class="badge record">🏆 ${t("serverRecord")}</span>` : ""}</td>
                   <td class="num mono"><strong>${fmtTime(r.timeSeconds)}</strong></td>
-                  <td class="num">${r.roster}</td><td>${fmtDate(r.firstKill)}</td><td>${fmtDate(r.date)}</td>
+                  <td class="num">${r.roster ?? "—"}</td><td>${fmtDate(r.firstKill)}</td><td>${fmtDate(r.date)}</td>
                   <td>${statusBadge(r.status)}${r.video ? ` <a class="video-link" href="${esc(r.video)}" rel="noopener">▶ ${t("watch")}</a>` : ""}</td></tr>`;
               }).join("")}</tbody></table></div>`;
         return `<div class="subhead">${t(d)}</div>${body}`;
@@ -342,35 +303,40 @@
     }).join("");
   }
 
-  /* ---------- Rendu : PvP ---------- */
+  /* ---------- Render: PvP ---------- */
   function renderPvp() {
     const circuit = document.querySelector("[data-pvp-circuit]");
     if (circuit) {
       const pts = circuitPointsByGuild();
       const rows = Object.entries(pts).map(([id, p]) => ({ g: DB.guildById[id], p }))
         .filter(r => r.g).sort((a, b) => b.p - a.p);
-      circuit.innerHTML = `<table class="board">
+      circuit.innerHTML = rows.length === 0
+        ? `<p class="section-sub" style="margin:4px 2px">${t("noCircuit")}</p>`
+        : `<table class="board">
         <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th class="num">${t("points")}</th></tr></thead>
         <tbody>${rows.map((r, i) => `<tr><td>${rankCell(i)}</td><td>${guildCell(r.g)}</td>
           <td class="num"><strong>${r.p}</strong></td></tr>`).join("")}</tbody></table>`;
+      circuit.classList.toggle("table-scroll", rows.length > 0);
     }
     const ladders = document.querySelector("[data-pvp-ladders]");
     if (ladders) {
       ladders.innerHTML = DB.pvp.ladders.map(l => {
         const rows = [...l.entries].sort((a, b) => b.rating - a.rating);
-        return `<div class="subhead">${esc(l.bracket)}</div>
-          <div class="table-scroll"><table class="board">
+        const body = rows.length === 0
+          ? `<p class="section-sub" style="margin:6px 2px 0">${t("noLadder")}</p>`
+          : `<div class="table-scroll"><table class="board">
           <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th>${t("player")}</th>
             <th class="num">${t("rating")}</th><th>${t("date")}</th><th>${t("proof")}</th></tr></thead>
           <tbody>${rows.map((r, i) => `<tr><td>${rankCell(i)}</td>
             <td>${guildCell(DB.guildById[r.guild])}</td><td>${esc(r.player)}</td>
             <td class="num mono"><strong>${r.rating}</strong></td><td>${fmtDate(r.date)}</td>
             <td>${statusBadge(r.status)}</td></tr>`).join("")}</tbody></table></div>`;
+        return `<div class="subhead">${esc(l.bracket)}</div>${body}`;
       }).join("");
     }
   }
 
-  /* ---------- Rendu : tournois ---------- */
+  /* ---------- Render: tournaments ---------- */
   const fmtKey = (f) => ({ single_elim: "fmtSingle", double_elim: "fmtDouble", round_robin: "fmtRR", swiss: "fmtSwiss" }[f] || f);
 
   function teamById(tn) {
@@ -393,12 +359,12 @@
 
   function bracketHtml(rounds, teams) {
     return `<div class="bracket">${rounds.map(r => `<div class="round">
-      <div class="round-title">${esc(r[lang] || r.fr || "")}</div>
+      <div class="round-title">${esc(r[lang] || r.en || r.fr || "")}</div>
       <div class="matches">${r.matches.map(m => matchHtml(m, teams)).join("")}</div>
     </div>`).join("")}</div>`;
   }
 
-  /* Classement d'un ensemble de matchs (poules & suisse) : victoires, puis différence de score. */
+  /* Standings for a set of matches (pools & Swiss): wins, then score difference. */
   function standingsFrom(teamIds, matches) {
     const st = {};
     teamIds.forEach(id => { st[id] = { id, played: 0, wins: 0, losses: 0, diff: 0 }; });
@@ -466,7 +432,7 @@
     } else if (tn.format === "double_elim") {
       body = `${tn.winners ? `<div class="subhead">Winners bracket</div>${bracketHtml(tn.winners, teams)}` : ""}
         ${tn.losers ? `<div class="subhead">Losers bracket</div>${bracketHtml(tn.losers, teams)}` : ""}
-        ${tn.grandFinal ? `<div class="subhead">${lang === "fr" ? "Grande finale" : "Grand final"}</div>
+        ${tn.grandFinal ? `<div class="subhead">${t("grandFinal")}</div>
           <div class="bracket"><div class="round"><div class="matches">${matchHtml(tn.grandFinal, teams)}</div></div></div>` : ""}
         ${podiumHtml(tn)}`;
     } else { /* single_elim */
@@ -478,13 +444,18 @@
 
     return `<article class="tourney" id="${esc(tn.id)}">
       <div class="tourney-head"><h3>${esc(tn.name)}</h3>${status}${tier}</div>
-      <p class="tourney-meta">${t("mode")} : ${esc(tn.mode)} · ${t(fmtKey(tn.format))} · ${fmtDate(tn.date)} · ${t("organizer")} ${esc(tn.organizer)}</p>
+      <p class="tourney-meta">${t("mode")}: ${esc(tn.mode)} · ${t(fmtKey(tn.format))} · ${fmtDate(tn.date)} · ${t("organizer")} ${esc(tn.organizer)}</p>
       ${body}</article>`;
   }
 
   function renderTourneys() {
     const host = document.querySelector("[data-tourneys]");
     if (!host) return;
+    if (DB.tourneys.length === 0) {
+      host.innerHTML = `<div class="card"><p class="section-sub" style="margin:0 0 14px">${t("tourneys.empty")}</p>
+        <a class="register-cta" href="https://github.com/Reptile-New/guild-leaderbord/issues/new?template=tournament.yml" rel="noopener">${t("tourneys.emptyCta")}</a></div>`;
+      return;
+    }
     const order = { open: 0, ongoing: 1, finished: 2 };
     const list = [...DB.tourneys].sort((a, b) =>
       (order[a.status] ?? 3) - (order[b.status] ?? 3) || (a.date < b.date ? 1 : -1));
@@ -494,8 +465,7 @@
   /* ---------- Boot ---------- */
   function renderDemoBanner() {
     const hostEl = document.querySelector("[data-demo-banner]");
-    if (hostEl && DB && DB.demo) hostEl.innerHTML = `<div>${t("demoBanner")}</div>`;
-    else if (hostEl) hostEl.innerHTML = "";
+    if (hostEl) hostEl.innerHTML = (DB && DB.demo) ? `<div>${t("demoBanner")}</div>` : "";
   }
 
   function renderPage() {
@@ -517,9 +487,7 @@
       const hostEl = document.querySelector("main .wrap") || document.body;
       const div = document.createElement("div");
       div.className = "callout";
-      div.innerHTML = lang === "fr"
-        ? `<b>Impossible de charger les données.</b> Si vous ouvrez le site en local, servez-le via <code>python3 -m http.server</code> (le protocole <code>file://</code> bloque les requêtes). Détail : ${esc(err.message)}`
-        : `<b>Could not load data.</b> If you opened the site locally, serve it with <code>python3 -m http.server</code> (the <code>file://</code> protocol blocks requests). Detail: ${esc(err.message)}`;
+      div.innerHTML = `${t("loadError")} <span class="gtag">${esc(err.message)}</span>`;
       hostEl.prepend(div);
     });
   }

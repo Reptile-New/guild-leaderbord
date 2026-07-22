@@ -53,6 +53,8 @@ a { color: inherit; }
 .topnav .cur { color: var(--accent-bright); font-weight: 600; }
 .lang-btn { margin-left: 6px; background: none; border: 1px solid var(--line); border-radius: 7px; color: var(--dim); font: inherit; font-size: 0.8rem; font-weight: 600; padding: 3px 9px; cursor: pointer; }
 .lang-btn:hover { color: var(--accent-bright); border-color: var(--accent); }
+select.lang-btn { background: transparent; }
+select.lang-btn option { background: var(--bg-card); color: var(--text); }
 @media (max-width: 720px) { .brand b { display: none; } .topnav { gap: 4px 10px; font-size: 0.82rem; } }
 
 /* ---- Hero ---- */

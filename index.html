@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title data-en="WoCC Guild Boards — the inter-guild leaderboard">Boards des Guildes — le classement inter-guildes de WoCC</title>
-<meta name="description" content="Le classement communautaire des guildes de World of ClaudeCraft : records PvE, circuit PvP, tournois, effectifs et XP. Soumissions ouvertes à toutes les guildes.">
+<title data-i18n="home.title">WoCC Guild Boards — the inter-guild leaderboard</title>
+<meta name="description" content="The community leaderboard for World of ClaudeCraft guilds: PvE records, PvP tournament circuit, rosters and XP. Submissions open to every guild.">
 <meta name="theme-color" content="#4ea8de">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><polygon points=%2750,0 100,16 100,60 50,100 0,60 0,16%27 fill=%27%234ea8de%27/><text x=%2750%27 y=%2772%27 font-size=%2752%27 text-anchor=%27middle%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%230a1622%27>B</text></svg>">
 <link rel="stylesheet" href="assets/style.css">
@@ -14,7 +14,7 @@
 
 <header class="topbar">
   <div class="row">
-    <a class="brand" href="index.html"><span class="sigil">B</span><b data-en="WoCC Guild Boards">Boards des Guildes</b></a>
+    <a class="brand" href="index.html"><span class="sigil">B</span><b>WoCC Guild Boards</b></a>
     <nav class="topnav" data-boards-nav data-current="home"></nav>
   </div>
 </header>
@@ -25,9 +25,9 @@
   <div class="wrap">
     <section class="hero">
       <div class="crest"><span>🏆</span></div>
-      <h1 data-en="WoCC Guild Boards">Boards des Guildes</h1>
-      <p data-en="The community leaderboard for World of ClaudeCraft guilds: PvE speed records, the PvP tournament circuit, rosters and XP. Every guild can submit — every record can be proven.">Le classement communautaire des guildes de World of ClaudeCraft : records PvE, circuit de tournois PvP, effectifs et XP. Chaque guilde peut soumettre — chaque record peut être prouvé.</p>
-      <span class="patchline" data-en="Boards aligned with game version v0.28.0 — data lives in the open, on GitHub.">Boards alignés sur la version v0.28.0 du jeu — les données vivent au grand jour, sur GitHub.</span>
+      <h1>WoCC Guild Boards</h1>
+      <p data-i18n="home.tagline">The community leaderboard for World of ClaudeCraft guilds: PvE speed records, the PvP tournament circuit, rosters and XP. Every guild can submit — every record can be proven.</p>
+      <span class="patchline" data-i18n="home.patchline">Boards aligned with game version v0.28.0 — the data lives in the open, on GitHub.</span>
     </section>
 
     <section>
@@ -35,28 +35,28 @@
     </section>
 
     <section>
-      <h2 data-en="Overall standings">Classement <span class="em">général</span></h2>
-      <p class="section-sub" data-en="PvE points (per-board scoring, F1 scale) + PvP circuit points (tournament placements). Member count and XP have their own boards on the Guilds page — they don't affect this score.">Points PvE (barème F1 par tableau) + points du circuit PvP (placements en tournoi). Effectifs et XP ont leurs propres classements sur la page Guildes — ils n'influencent pas ce score.</p>
+      <h2 data-i18n="home.overallH">Overall <span class="em">standings</span></h2>
+      <p class="section-sub" data-i18n="home.overallSub">PvE points (per-board scoring, F1 scale) + PvP circuit points (tournament placements). Member count and XP have their own boards on the Guilds page — they don't affect this score.</p>
       <div class="table-scroll" data-home-board></div>
     </section>
 
     <section>
-      <h2 data-en="Latest records">Derniers <span class="em">records</span></h2>
-      <div class="table-scroll" data-home-latest></div>
+      <h2 data-i18n="home.latestH">Latest <span class="em">records</span></h2>
+      <div data-home-latest></div>
     </section>
 
     <section>
-      <h2 data-en="Next tournament">Prochain <span class="em">tournoi</span></h2>
+      <h2 data-i18n="home.nextH">Next <span class="em">tournament</span></h2>
       <div data-home-next></div>
     </section>
 
     <section>
-      <h2 data-en="Explore the boards">Explorer les <span class="em">boards</span></h2>
+      <h2 data-i18n="home.exploreH">Explore the <span class="em">boards</span></h2>
       <div class="cards">
-        <a class="navcard" href="pve.html"><h3>⚔️ <span data-en="PvE records">Records PvE</span></h3><p data-en="Kill times on Nythraxis, dungeons, delves and world bosses — normal and heroic.">Temps de kill sur Nythraxis, les donjons, les gouffres et les boss mondiaux — normal et héroïque.</p></a>
-        <a class="navcard" href="pvp.html"><h3>🛡️ <span data-en="PvP circuit">Circuit PvP</span></h3><p data-en="Tournament circuit points and the best in-game ladder ratings per guild.">Les points du circuit de tournois et les meilleures cotes de ladder par guilde.</p></a>
-        <a class="navcard" href="tournois.html"><h3>🏟️ <span data-en="Tournaments">Tournois</span></h3><p data-en="Single &amp; double elimination, pools, Swiss system — brackets and results.">Élimination directe et double, poules, système suisse — arbres et résultats.</p></a>
-        <a class="navcard" href="reglement.html"><h3>📜 <span data-en="Rules &amp; submitting">Règlement &amp; soumission</span></h3><p data-en="How records get verified, how to register your guild, how to contest a result.">Comment les records sont vérifiés, comment inscrire sa guilde, comment contester.</p></a>
+        <a class="navcard" href="pve.html"><h3 data-i18n="home.cardPveH">⚔️ PvE records</h3><p data-i18n="home.cardPveP">Kill times on Nythraxis, dungeons, delves and world bosses — normal and heroic.</p></a>
+        <a class="navcard" href="pvp.html"><h3 data-i18n="home.cardPvpH">🛡️ PvP circuit</h3><p data-i18n="home.cardPvpP">Tournament circuit points and the best in-game ladder ratings per guild.</p></a>
+        <a class="navcard" href="tournois.html"><h3 data-i18n="home.cardTourH">🏟️ Tournaments</h3><p data-i18n="home.cardTourP">Single &amp; double elimination, pools, Swiss system — brackets and results.</p></a>
+        <a class="navcard" href="reglement.html"><h3 data-i18n="home.cardRulesH">📜 Rules &amp; submitting</h3><p data-i18n="home.cardRulesP">How records get verified, how to register your guild, how to contest a result.</p></a>
       </div>
     </section>
   </div>
@@ -64,12 +64,13 @@
 
 <footer>
   <div class="wrap">
-    <span data-en="WoCC Guild Boards — a community project, not affiliated with levy-street (yet!).">Boards des Guildes — projet communautaire, non affilié à levy-street (pour l'instant !).</span>
+    <span data-i18n="footer.tagline">WoCC Guild Boards — a community project, not affiliated with levy-street (yet!).</span>
     <a href="https://github.com/Reptile-New/guild-leaderbord" rel="noopener">GitHub</a>
     <a href="https://github.com/levy-street/world-of-claudecraft" rel="noopener">World of ClaudeCraft</a>
   </div>
 </footer>
 
+<script src="assets/i18n.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

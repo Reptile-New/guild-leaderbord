@@ -1,0 +1,30 @@
+name: "⚖️ Dispute"
+description: "Contest a record or a tournament result (7-day window — see the rules)"
+title: "[Dispute] "
+labels: ["dispute"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reminder: a contested "on honor" entry must produce proof or is removed.
+        A contested "verified" entry is re-reviewed by two maintainers. Proven cheating = one-season suspension.
+  - type: input
+    id: target
+    attributes:
+      label: "Contested entry (guild + boss/tournament + date)"
+      placeholder: "Guild X — Nythraxis heroic — 2026-07-19"
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Reason and evidence"
+      description: "Why this result looks invalid (inconsistent time, roster, game version, edited video…)."
+    validations:
+      required: true
+  - type: input
+    id: guild
+    attributes:
+      label: "Your guild"
+    validations:
+      required: true

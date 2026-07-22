@@ -1,6 +1,5 @@
 {
-  "_aide": "Registre des guildes inscrites aux Boards. Une guilde s'inscrit via l'issue « Inscription de guilde » (ou une PR sur ce fichier). Champs : members (effectif déclaré), avgLevel (niveau moyen), totalXp (XP cumulée des membres), created (date de création de la guilde), demo (true = donnée de démonstration à remplacer par les vraies soumissions).",
-  "_demo": true,
+  "_help": "Registry of guilds on the Boards. A guild registers via the 'Guild registration' issue (or a PR on this file). Fields: members (declared roster size), avgLevel (average member level), totalXp (cumulative member XP), created (guild creation date) — all optional except id/name/tag; null renders as '—' on the site.",
   "guilds": [
     {
       "id": "la-clauderie",
@@ -8,83 +7,12 @@
       "tag": "CLDR",
       "region": "EU",
       "lang": "fr",
-      "members": 24,
-      "avgLevel": 16,
-      "totalXp": 812400,
-      "created": "2026-02-10",
+      "members": 9,
+      "avgLevel": null,
+      "totalXp": null,
+      "created": null,
       "site": "https://laclauderie.fr",
-      "motto": "On quête, on raid, on rigole — ensemble.",
-      "demo": false
-    },
-    {
-      "id": "thornpeak-vanguard",
-      "name": "Thornpeak Vanguard",
-      "tag": "THRN",
-      "region": "NA",
-      "lang": "en",
-      "members": 31,
-      "avgLevel": 17,
-      "totalXp": 1043800,
-      "created": "2026-01-22",
-      "site": null,
-      "motto": "First up the peak.",
-      "demo": true
-    },
-    {
-      "id": "forgeborn-pact",
-      "name": "The Forgeborn Pact",
-      "tag": "FORG",
-      "region": "EU",
-      "lang": "en",
-      "members": 27,
-      "avgLevel": 15,
-      "totalXp": 874100,
-      "created": "2026-03-04",
-      "site": null,
-      "motto": "Struck once, bound forever.",
-      "demo": true
-    },
-    {
-      "id": "moonlit-tide",
-      "name": "Moonlit Tide",
-      "tag": "TIDE",
-      "region": "NA",
-      "lang": "en",
-      "members": 19,
-      "avgLevel": 16,
-      "totalXp": 655900,
-      "created": "2026-02-27",
-      "site": null,
-      "motto": "The Drowned Moon watches.",
-      "demo": true
-    },
-    {
-      "id": "silver-canticle",
-      "name": "Silver Canticle",
-      "tag": "CANT",
-      "region": "EU",
-      "lang": "en",
-      "members": 15,
-      "avgLevel": 14,
-      "totalXp": 489200,
-      "created": "2026-04-15",
-      "site": null,
-      "motto": "Sing, and the crypt answers.",
-      "demo": true
-    },
-    {
-      "id": "eclaireurs-du-val",
-      "name": "Les Éclaireurs du Val",
-      "tag": "ECLR",
-      "region": "EU",
-      "lang": "fr",
-      "members": 12,
-      "avgLevel": 13,
-      "totalXp": 371500,
-      "created": "2026-05-02",
-      "site": null,
-      "motto": "Toujours premiers sur zone.",
-      "demo": true
+      "motto": "On quête, on raid, on rigole — ensemble."
     }
   ]
 }

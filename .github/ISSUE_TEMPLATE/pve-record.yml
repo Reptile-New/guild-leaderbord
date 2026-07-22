@@ -1,0 +1,74 @@
+name: "⚔️ PvE record"
+description: "Submit a kill time (raid, dungeon, delve, world boss) — data/pve-records.json"
+title: "[Record] "
+labels: ["pve-record"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Rules reminder**: a submission with a reviewed video = "✔ Verified" badge and ranking priority.
+        Without video = "✎ On honor": listed, but always below verified entries, and never "Server record".
+        The video must show the whole fight (pull to kill), uncut.
+  - type: input
+    id: guild
+    attributes:
+      label: "Guild (already registered on the Boards)"
+      placeholder: "La Clauderie"
+    validations:
+      required: true
+  - type: dropdown
+    id: encounter
+    attributes:
+      label: "Encounter"
+      options:
+        - "Nythraxis, Scourge of Thornpeak — 10-player raid"
+        - "Morthen the Gravecaller — The Hollow Crypt (5)"
+        - "Vael the Fogbinder — The Sunken Bastion (5)"
+        - "Korzul the Gravewyrm — Gravewyrm Sanctum (5)"
+        - "Ysolei, Avatar of the Drowned Moon — The Drowned Temple (5)"
+        - "Thunzharr, the Waking Peak — world boss"
+        - "Deacon Varric — The Collapsed Reliquary (delve, 2)"
+        - "Sister Nhalia — The Drowned Litany (delve, 2)"
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: "Difficulty"
+      options: ["Normal", "Heroic"]
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: "Time (mm:ss, pull to kill — full run for delves; leave empty if you only want to register the kill date)"
+      placeholder: "8:12"
+  - type: input
+    id: roster
+    attributes:
+      label: "Roster size (number of players)"
+      placeholder: "10"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: "Kill date (YYYY-MM-DD)"
+      placeholder: "2026-07-18"
+    validations:
+      required: true
+  - type: input
+    id: first
+    attributes:
+      label: "Date of your guild's very first kill on this boss/difficulty (if different)"
+      placeholder: "2026-07-12"
+  - type: input
+    id: video
+    attributes:
+      label: "Video link (YouTube, Twitch VOD… — strongly recommended)"
+      placeholder: "https://youtu.be/…"
+  - type: input
+    id: patch
+    attributes:
+      label: "Game version"
+      placeholder: "v0.28.0"

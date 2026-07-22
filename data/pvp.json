@@ -1,26 +1,7 @@
 {
-  "_aide": "Volet ladder du PvP : les meilleures cotes des ladders EN JEU (1v1 et 2v2 classés), déclarées par les guildes pour leurs joueurs. Le classement PvP des guildes (circuit) est lui calculé automatiquement à partir des placements de data/tournaments.json — rien à saisir ici pour les tournois. status : 'verified' (capture/vidéo relue) ou 'declared' (sur l'honneur).",
-  "_demo": true,
+  "_help": "Ladder side of PvP: best IN-GAME ladder ratings (ranked 1v1 and 2v2), declared by guilds for their players. The guild PvP ranking (circuit) is computed automatically from the placements in data/tournaments.json — nothing to enter here for tournaments. status: 'verified' (screenshot/video reviewed) or 'declared' (on honor).",
   "ladders": [
-    {
-      "bracket": "1v1",
-      "entries": [
-        { "guild": "la-clauderie",      "player": "Yumiko",  "rating": 1874, "date": "2026-07-20", "status": "verified", "demo": true },
-        { "guild": "thornpeak-vanguard", "player": "Brakka",  "rating": 1861, "date": "2026-07-19", "status": "verified", "demo": true },
-        { "guild": "moonlit-tide",      "player": "Selune",  "rating": 1799, "date": "2026-07-18", "status": "declared", "demo": true },
-        { "guild": "silver-canticle",   "player": "Nhalim",  "rating": 1752, "date": "2026-07-17", "status": "declared", "demo": true },
-        { "guild": "forgeborn-pact",    "player": "Kordan",  "rating": 1730, "date": "2026-07-20", "status": "verified", "demo": true },
-        { "guild": "eclaireurs-du-val", "player": "Perrin",  "rating": 1644, "date": "2026-07-16", "status": "declared", "demo": true }
-      ]
-    },
-    {
-      "bracket": "2v2",
-      "entries": [
-        { "guild": "thornpeak-vanguard", "player": "Brakka & Vessa",   "rating": 1912, "date": "2026-07-19", "status": "verified", "demo": true },
-        { "guild": "la-clauderie",      "player": "Yumiko & Maelis",  "rating": 1885, "date": "2026-07-20", "status": "verified", "demo": true },
-        { "guild": "moonlit-tide",      "player": "Selune & Ondin",   "rating": 1810, "date": "2026-07-15", "status": "declared", "demo": true },
-        { "guild": "forgeborn-pact",    "player": "Kordan & Torvo",   "rating": 1768, "date": "2026-07-18", "status": "declared", "demo": true }
-      ]
-    }
+    { "bracket": "1v1", "entries": [] },
+    { "bracket": "2v2", "entries": [] }
   ]
 }

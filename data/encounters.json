@@ -1,11 +1,11 @@
 {
-  "_aide": "Référentiel du contenu PvE, extrait de la knowledge base WoCC (Reptile-New/wocc-knowledge-base). Mettre à jour à chaque MAJ du jeu qui ajoute un boss, un donjon, un gouffre ou un mode héroïque. Le champ `patch` indique la version du jeu sur laquelle ce référentiel est aligné.",
+  "_help": "PvE content referential, extracted from the WoCC knowledge base (Reptile-New/wocc-knowledge-base). Update on every game release that adds a boss, dungeon, delve or heroic mode. The `patch` field is the game version this referential is aligned with.",
   "patch": "v0.28.0",
   "categories": [
-    { "id": "raid",    "fr": "Raids",         "en": "Raids" },
-    { "id": "dungeon", "fr": "Donjons",       "en": "Dungeons" },
-    { "id": "world",   "fr": "Boss mondiaux", "en": "World bosses" },
-    { "id": "delve",   "fr": "Gouffres",      "en": "Delves" }
+    { "id": "raid",    "en": "Raids",        "fr": "Raids",         "de": "Raids",      "es": "Raids" },
+    { "id": "dungeon", "en": "Dungeons",     "fr": "Donjons",       "de": "Dungeons",   "es": "Mazmorras" },
+    { "id": "world",   "en": "World bosses", "fr": "Boss mondiaux", "de": "Weltbosse",  "es": "Jefes de mundo" },
+    { "id": "delve",   "en": "Delves",       "fr": "Gouffres",      "de": "Delves",     "es": "Delves" }
   ],
   "encounters": [
     {
@@ -56,7 +56,7 @@
     {
       "id": "thunzharr",
       "boss": "Thunzharr, the Waking Peak",
-      "instance": "Waking Peak (monde ouvert)",
+      "instance": "Waking Peak (open world)",
       "category": "world",
       "players": null,
       "difficulties": ["normal"],

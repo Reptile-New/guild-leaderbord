@@ -1,0 +1,76 @@
+name: "🏰 Guild registration"
+description: "Register your guild on the Boards (data/guilds.json)"
+title: "[Guild] "
+labels: ["registration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to the Boards! A maintainer will merge your guild into `data/guilds.json`.
+        Only the **guild master** (or an officer named here) will be able to submit records afterwards.
+        You may write in any language — English helps maintainers process it faster.
+  - type: input
+    id: name
+    attributes:
+      label: "Guild name"
+      placeholder: "La Clauderie"
+    validations:
+      required: true
+  - type: input
+    id: tag
+    attributes:
+      label: "Tag (2–5 letters)"
+      placeholder: "CLDR"
+    validations:
+      required: true
+  - type: dropdown
+    id: region
+    attributes:
+      label: "Region"
+      options: ["EU", "NA", "APAC", "Other"]
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: "Main language of the guild (en, fr, de, es, …)"
+      placeholder: "fr"
+  - type: input
+    id: members
+    attributes:
+      label: "Member count"
+      placeholder: "24"
+    validations:
+      required: true
+  - type: input
+    id: level
+    attributes:
+      label: "Average member level (optional)"
+      placeholder: "16"
+  - type: input
+    id: xp
+    attributes:
+      label: "Cumulative total XP (approximate, optional)"
+      placeholder: "812400"
+  - type: input
+    id: created
+    attributes:
+      label: "Guild creation date (YYYY-MM-DD, optional)"
+      placeholder: "2026-02-10"
+  - type: input
+    id: gm
+    attributes:
+      label: "Guild master (in-game name) + officers allowed to submit"
+      placeholder: "Yumiko (GM), Maelis (officer)"
+    validations:
+      required: true
+  - type: input
+    id: site
+    attributes:
+      label: "Website / Discord (optional)"
+      placeholder: "https://laclauderie.fr"
+  - type: input
+    id: motto
+    attributes:
+      label: "Motto (one sentence, shown on the Boards, any language)"
+      placeholder: "On quête, on raid, on rigole — ensemble."

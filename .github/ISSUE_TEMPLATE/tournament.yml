@@ -1,0 +1,49 @@
+name: "🏟️ Tournament (registration, proposal or results)"
+description: "Register a team for an open tournament, propose a tournament, or submit results — data/tournaments.json"
+title: "[Tournament] "
+labels: ["tournament"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: "Purpose"
+      options:
+        - "Register my team for an open tournament"
+        - "Propose / host a new tournament"
+        - "Submit the results of a finished tournament"
+    validations:
+      required: true
+  - type: input
+    id: tournament
+    attributes:
+      label: "Tournament (name or id)"
+      placeholder: "vale-cup-2026"
+    validations:
+      required: true
+  - type: input
+    id: guild
+    attributes:
+      label: "Guild"
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: "Format (for a new tournament)"
+      options:
+        - "Single elimination"
+        - "Double elimination"
+        - "Round robin (pools)"
+        - "Swiss system"
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Game mode (for a new tournament)"
+      options: ["1v1", "2v2", "Protect Yumi 3v3", "Protect Yumi 5v5", "Fiesta", "Other"]
+  - type: textarea
+    id: details
+    attributes:
+      label: "Details"
+      description: "Team and players for a registration; date, rules and prize (if any) for a proposal; full bracket with scores for results (organizers may also open a PR on data/tournaments.json)."
+    validations:
+      required: true

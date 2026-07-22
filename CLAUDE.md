@@ -2,8 +2,10 @@
 
 Leaderboard inter-guildes de World of ClaudeCraft. Site statique sans build :
 `assets/app.js` charge `data/*.json` et calcule tous les classements côté
-client. Bilingue : FR dans le HTML, EN via les attributs `data-en` + le dict
-`T` de `app.js`.
+client. Multilingue : ANGLAIS de base dans le HTML (attributs `data-i18n`),
+traductions FR/DE/ES dans `assets/i18n.js` (clé manquante → fallback anglais,
+langue par défaut = celle du navigateur). Ajouter une langue = compléter
+`LANGUAGES` + chaque chaîne de `i18n.js`, rien d'autre.
 
 ## Règles à ne pas casser
 
@@ -13,9 +15,12 @@ client. Bilingue : FR dans le HTML, EN via les attributs `data-en` + le dict
   (barèmes `CIRCUIT_POINTS`). Ne jamais saisir de points à la main.
 - **La nav est définie une seule fois** (`NAV` dans `app.js`) — ne pas éditer
   les barres page par page.
-- Les données de démo portent `"_demo": true` (bannière automatique) et
-  `"demo": true` par entrée. Les premières vraies soumissions doivent remplacer
-  les entrées de démo, pas s'y mélanger.
+- **Les données sont réelles** (plus de démo depuis juillet 2026) : n'ajouter
+  une guilde ou un record que sur soumission d'un maître de guilde (issue/PR)
+  ou source publique citée dans le champ `source`. `timeSeconds: null` = kill
+  daté sans chrono, classé après les entrées chronométrées de même statut.
+  Le flag `"_demo": true` dans un fichier de données réaffiche la bannière
+  d'avertissement si besoin.
 
 ## Tâches courantes
 

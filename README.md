@@ -1,17 +1,21 @@
-# Boards des Guildes — WoCC Guild Boards
+# WoCC Guild Boards
 
-Le classement communautaire inter-guildes de **World of ClaudeCraft** :
-records PvE (temps de kill), circuit de tournois PvP, effectifs, XP.
-Site 100 % statique, bilingue FR/EN, hébergeable gratuitement sur GitHub Pages.
+The community-run inter-guild leaderboard for **World of ClaudeCraft**:
+PvE speed-kill boards (per boss × difficulty, aligned with the game's real
+content), a PvP tournament circuit (single/double elimination, round robin
+pools, Swiss system), guild rosters and XP boards. Fully static, free to host
+on GitHub Pages, multilingual (EN default — FR, DE, ES, easy to add more).
 
-> **English summary** — A community-run, fully static leaderboard for World of
-> ClaudeCraft guilds: PvE speed-kill boards (per boss × difficulty, aligned with
-> the game's real content), a PvP tournament circuit (single/double elimination,
-> round robin pools, Swiss system), guild rosters and XP boards. The JSON files
-> in `data/` **are** the database; the git history is the audit log; issues are
-> the submission and dispute pipeline. Designed to be adopted by levy-street as
-> the official boards with zero rewrite: fork the repo, keep the JSON contracts,
-> optionally feed them from real server data.
+The JSON files in `data/` **are** the database; the git history is the audit
+log; issues are the submission and dispute pipeline. Designed to be adopted by
+levy-street as the official boards with zero rewrite: fork the repo, keep the
+JSON contracts, optionally feed them from real server data.
+
+> **Résumé FR** — Classement communautaire inter-guildes : records PvE, circuit
+> de tournois PvP, effectifs et XP. Site 100 % statique multilingue (anglais
+> par défaut, sélecteur EN/FR/DE/ES), hébergé gratuitement sur GitHub Pages.
+> Les JSON de `data/` sont la base de données, l'historique git le journal
+> d'audit, les issues le canal de soumission.
 
 ## Le site
 
@@ -30,6 +34,12 @@ tous les classements côté client. Pour tester en local :
 ```sh
 python3 -m http.server 8000   # puis http://localhost:8000
 ```
+
+**Langues** : l'anglais est la langue de base (dans le HTML) ; toutes les autres
+vivent dans `assets/i18n.js`. La langue par défaut suit celle du navigateur.
+Ajouter une langue = ajouter son code à `LANGUAGES` + une entrée par chaîne
+(toute entrée manquante retombe sur l'anglais) — les PR de traduction sont
+bienvenues.
 
 ## Le modèle de confiance (résumé du règlement)
 
@@ -50,19 +60,21 @@ python3 -m http.server 8000   # puis http://localhost:8000
 | `data/pvp.json` | Meilleures cotes des ladders en jeu (informatif) |
 | `data/tournaments.json` | Tournois ; les `placements` alimentent automatiquement les points du circuit |
 
-Les données actuelles sont **de démonstration** (`"_demo": true`, bannière
-affichée sur le site) : elles montrent le produit fini en attendant les
-premières soumissions réelles. Les retirer = vider les tableaux `records` /
-`tournaments` et les guildes `"demo": true`.
+Les données sont **réelles** : seules les guildes inscrites et les résultats
+sourcés y figurent (les premiers kills Nythraxis de La Clauderie viennent de la
+page « faits d'armes » de laclauderie.fr). Un record peut exister sans chrono
+(`timeSeconds: null`) : il marque la date du kill en attendant un run
+chronométré. (Un mode démo existe : `"_demo": true` dans un fichier de données
+affiche une bannière d'avertissement sur tout le site.)
 
 ## Soumettre
 
-Tout passe par GitHub (formulaires d'issues prêts à l'emploi) :
+Tout passe par GitHub (formulaires d'issues prêts à l'emploi, en anglais) :
 
-- 🏰 **Inscription de guilde** → `data/guilds.json`
-- ⚔️ **Record PvE** → `data/pve-records.json`
-- 🏟️ **Tournoi** (inscription d'équipe, proposition, résultats) → `data/tournaments.json`
-- ⚖️ **Contestation** — fenêtre de 7 jours
+- 🏰 **Guild registration** → `data/guilds.json`
+- ⚔️ **PvE record** → `data/pve-records.json`
+- 🏟️ **Tournament** (inscription d'équipe, proposition, résultats) → `data/tournaments.json`
+- ⚖️ **Dispute** — fenêtre de 7 jours
 
 Chaque record accepté est un commit : l'historique complet des boards est
 public et auditable.
