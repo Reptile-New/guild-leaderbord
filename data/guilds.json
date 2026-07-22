@@ -64,16 +64,16 @@
     {
       "id": "la-clauderie",
       "name": "La Clauderie",
-      "tag": "CLDR",
-      "region": "EU",
-      "lang": "fr",
+      "tag": null,
+      "region": null,
+      "lang": null,
       "serverRank": 5,
       "members": 37,
       "avgLevel": null,
       "totalXp": 9423978,
       "created": null,
-      "site": "https://laclauderie.fr",
-      "motto": "On quête, on raid, on rigole — ensemble.",
+      "site": null,
+      "motto": null,
       "topLevel": 20
     },
     {

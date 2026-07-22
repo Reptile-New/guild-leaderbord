@@ -1,31 +1,4 @@
 {
   "_help": "PvE records submitted by guilds. One entry = a guild's best attempt on a boss/difficulty (the site keeps only the best per guild per board). status: 'verified' (video proof reviewed by a maintainer) or 'declared' (guild master's word). Verified entries ALWAYS rank above declared ones regardless of time — see the rules page. timeSeconds = fight duration (or full delve run when the encounter objective is 'clear'); null = kill recorded without a timed run (ranked after timed entries of the same status). firstKill = the guild's very first kill date (progress race).",
-  "records": [
-    {
-      "guild": "la-clauderie",
-      "encounter": "nythraxis",
-      "difficulty": "normal",
-      "timeSeconds": null,
-      "roster": 5,
-      "date": "2026-07-09",
-      "firstKill": "2026-07-09",
-      "video": null,
-      "status": "declared",
-      "patch": null,
-      "source": "https://laclauderie.fr (faits d'armes) — defeated with 5 players in normal mode"
-    },
-    {
-      "guild": "la-clauderie",
-      "encounter": "nythraxis",
-      "difficulty": "heroic",
-      "timeSeconds": null,
-      "roster": null,
-      "date": "2026-07-09",
-      "firstKill": "2026-07-09",
-      "video": null,
-      "status": "declared",
-      "patch": null,
-      "source": "https://laclauderie.fr (faits d'armes) — heroic world first"
-    }
-  ]
+  "records": []
 }
