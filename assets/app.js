@@ -51,6 +51,7 @@
   const NAV = [
     { id: "home",     href: "index.html",     key: "nav.home" },
     { id: "guilds",   href: "guildes.html",   key: "nav.guilds" },
+    { id: "players",  href: "joueurs.html",   key: "nav.players" },
     { id: "pve",      href: "pve.html",       key: "nav.pve" },
     { id: "pvp",      href: "pvp.html",       key: "nav.pvp" },
     { id: "tourneys", href: "tournois.html",  key: "nav.tourneys" },
@@ -113,9 +114,12 @@
         return r.json();
       }))
     );
+    // players.json apparaît au premier passage du robot de sync — optionnel.
+    const players = await fetch("data/players.json").then(r => r.ok ? r.json() : null).catch(() => null);
     const byId = {};
     guilds.guilds.forEach(g => { byId[g.id] = g; });
     DB = { guilds: guilds.guilds, guildById: byId, encounters, records: pve.records, pvp, tourneys: tourneys.tournaments,
+           players: players ? players.players : [], realm: players ? players.realm : null,
            demo: !!(guilds._demo || pve._demo || tourneys._demo) };
   }
 
@@ -266,6 +270,40 @@
         <td>${g.region ? esc(g.region) : "—"} <span class="gtag">${esc((g.lang || "").toUpperCase())}</span></td>
         <td class="num">${fmtInt(g.members)}</td><td class="num">${fmtInt(g.topLevel)}</td>
         <td class="num mono">${fmtInt(g.totalXp)}</td><td>${fmtDate(g.created)}</td></tr>`).join("")}</tbody></table>`;
+  }
+
+  /* ---------- Render: players ---------- */
+  let playerCls = "all";
+
+  function renderPlayers() {
+    const chips = document.querySelector("[data-players-chips]");
+    const host = document.querySelector("[data-players-table]");
+    if (!host) return;
+    if (!DB.players.length) {
+      host.innerHTML = "";
+      host.insertAdjacentHTML("beforebegin", `<p class="section-sub">${t("noPlayers")}</p>`);
+      return;
+    }
+    const classes = [...new Set(DB.players.map(p => p.cls).filter(Boolean))].sort();
+    const clsLabel = (c) => c.charAt(0).toUpperCase() + c.slice(1);
+    if (chips) {
+      chips.innerHTML = [{ id: "all" }, ...classes.map(c => ({ id: c }))].map(c =>
+        `<button type="button" class="chip${c.id === playerCls ? " on" : ""}" data-cls="${c.id}">${c.id === "all" ? t("all") : clsLabel(c.id)}</button>`).join("");
+      chips.querySelectorAll("[data-cls]").forEach(b =>
+        b.addEventListener("click", () => { playerCls = b.dataset.cls; renderPlayers(); }));
+    }
+    const rows = DB.players.filter(p => playerCls === "all" || p.cls === playerCls);
+    host.innerHTML = `<table class="board">
+      <thead><tr><th>${t("srvRank")}</th><th>${t("character")}</th><th>${t("charClass")}</th>
+        <th class="num">${t("level")}</th><th class="num">${t("virtualLevel")}</th>
+        <th class="num">${t("lifetimeXp")}</th><th class="num">${t("prestige")}</th></tr></thead>
+      <tbody>${rows.map((p, i) => `<tr>
+        <td>${playerCls === "all" ? rankCell(i) : `<span class="rank">${p.rank}</span>`}</td>
+        <td><span class="gname">${esc(p.name)}</span></td>
+        <td>${esc(clsLabel(p.cls || "—"))}</td>
+        <td class="num">${p.level ?? "—"}</td><td class="num">${p.virtualLevel ?? "—"}</td>
+        <td class="num mono">${fmtInt(p.lifetimeXp)}</td>
+        <td class="num">${p.prestigeRank || "—"}</td></tr>`).join("")}</tbody></table>`;
   }
 
   /* ---------- Render: PvE ---------- */
@@ -480,6 +518,7 @@
     const page = document.body.dataset.page;
     if (page === "home") renderHome();
     else if (page === "guilds") renderGuilds();
+    else if (page === "players") renderPlayers();
     else if (page === "pve") renderPve();
     else if (page === "pvp") renderPvp();
     else if (page === "tourneys") renderTourneys();

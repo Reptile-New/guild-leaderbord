@@ -15,6 +15,7 @@ window.I18N = {
     /* ---- Navigation & footer ---- */
     "nav.home":     { en: "Home",        fr: "Accueil",    de: "Start",      es: "Inicio" },
     "nav.guilds":   { en: "Guilds",      fr: "Guildes",    de: "Gilden",     es: "Gremios" },
+    "nav.players":  { en: "Players",     fr: "Joueurs",    de: "Spieler",    es: "Jugadores" },
     "nav.pve":      { en: "PvE",         fr: "PvE",        de: "PvE",        es: "PvE" },
     "nav.pvp":      { en: "PvP",         fr: "PvP",        de: "PvP",        es: "PvP" },
     "nav.tourneys": { en: "Tournaments", fr: "Tournois",   de: "Turniere",   es: "Torneos" },
@@ -99,6 +100,26 @@ window.I18N = {
       fr: "Ta guilde manque à l'appel ? Inscris-la — voir la page Règlement.",
       de: "Deine Gilde fehlt? Registriere sie — siehe die Regeln-Seite.",
       es: "¿Falta tu gremio? Regístralo — mira la página de Reglas." },
+
+    /* ---- Players page ---- */
+    "players.title": { en: "Players — WoCC Guild Boards", fr: "Joueurs — WoCC Guild Boards", de: "Spieler — WoCC Guild Boards", es: "Jugadores — WoCC Guild Boards" },
+    "players.h1": { en: "The players", fr: "Les joueurs", de: "Die Spieler", es: "Los jugadores" },
+    "players.tagline": {
+      en: "The realm's top characters — class, level, lifetime XP and prestige — synced automatically from the game's official leaderboard API every 3 hours. Straight from the game, same for everyone.",
+      fr: "Le top des personnages du royaume — classe, niveau, XP de vie et prestige — synchronisé automatiquement depuis l'API officielle du jeu toutes les 3 heures. Directement du jeu, pareil pour tout le monde.",
+      de: "Die Top-Charaktere des Realms — Klasse, Level, Lifetime-XP und Prestige — alle 3 Stunden automatisch über die offizielle Leaderboard-API des Spiels synchronisiert. Direkt aus dem Spiel, gleich für alle.",
+      es: "Los mejores personajes del reino — clase, nivel, XP de vida y prestigio — sincronizados automáticamente desde la API oficial del juego cada 3 horas. Directo del juego, igual para todos." },
+    "character":   { en: "Character", fr: "Personnage", de: "Charakter", es: "Personaje" },
+    "charClass":   { en: "Class", fr: "Classe", de: "Klasse", es: "Clase" },
+    "level":       { en: "Level", fr: "Niveau", de: "Level", es: "Nivel" },
+    "virtualLevel":{ en: "Virtual level", fr: "Niveau virtuel", de: "Virtuelles Level", es: "Nivel virtual" },
+    "lifetimeXp":  { en: "Lifetime XP", fr: "XP de vie", de: "Lifetime-XP", es: "XP de vida" },
+    "prestige":    { en: "Prestige", fr: "Prestige", de: "Prestige", es: "Prestigio" },
+    "noPlayers":   {
+      en: "Player data not synced yet — the robot passes every 3 hours.",
+      fr: "Données joueurs pas encore synchronisées — le robot passe toutes les 3 heures.",
+      de: "Spielerdaten noch nicht synchronisiert — der Bot läuft alle 3 Stunden.",
+      es: "Datos de jugadores aún no sincronizados — el robot pasa cada 3 horas." },
 
     /* ---- PvE page ---- */
     "pve.title": { en: "PvE records — WoCC Guild Boards", fr: "Records PvE — WoCC Guild Boards", de: "PvE-Rekorde — WoCC Guild Boards", es: "Récords PvE — WoCC Guild Boards" },

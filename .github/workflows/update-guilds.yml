@@ -1,6 +1,7 @@
-# Importe toutes les guildes du classement serveur (API publique du jeu)
-# dans data/guilds.json. Les champs éditoriaux (motto, site, langue…) restent
-# gérés par issues/PR — le script ne les touche jamais.
+# Importe toutes les guildes du classement serveur et le top des personnages
+# (API publique du jeu) dans data/guilds.json et data/players.json. Les champs
+# éditoriaux des guildes (motto, site, langue…) restent gérés par issues/PR —
+# les scripts ne les touchent jamais.
 name: Sync des guildes (API du jeu)
 
 on:
@@ -11,6 +12,7 @@ on:
     branches: [main]
     paths:
       - "scripts/sync_guilds.py"
+      - "scripts/sync_players.py"
       - ".github/workflows/update-guilds.yml"
 
 permissions:
@@ -31,18 +33,21 @@ jobs:
       - name: Relever le classement des guildes
         run: python3 scripts/sync_guilds.py
 
+      - name: Relever le classement des personnages
+        run: python3 scripts/sync_players.py
+
       - name: Commit & redéploiement si changement
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          if git diff --quiet data/guilds.json; then
+          if git diff --quiet data/guilds.json data/players.json && [ -f data/players.json ]; then
             echo "Aucun changement."
             exit 0
           fi
           git config user.name "boards-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/guilds.json
+          git add data/guilds.json data/players.json
           git commit -m "guildes : sync depuis l'API du jeu"
           pushed=false
           for i in 1 2 3 4; do

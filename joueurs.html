@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title data-i18n="players.title">Players — WoCC Guild Boards</title>
+<meta name="description" content="The top characters of World of ClaudeCraft: class, level, lifetime XP and prestige, synced from the game's official leaderboard API.">
+<meta name="theme-color" content="#4ea8de">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><polygon points=%2750,0 100,16 100,60 50,100 0,60 0,16%27 fill=%27%234ea8de%27/><text x=%2750%27 y=%2772%27 font-size=%2752%27 text-anchor=%27middle%27 font-family=%27Georgia%27 font-weight=%27bold%27 fill=%27%230a1622%27>B</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="players">
+
+<header class="topbar">
+  <div class="row">
+    <a class="brand" href="index.html"><span class="sigil">B</span><b>WoCC Guild Boards</b></a>
+    <nav class="topnav" data-boards-nav data-current="players"></nav>
+  </div>
+</header>
+
+<div class="demo-banner" data-demo-banner></div>
+
+<main>
+  <div class="wrap">
+    <section class="hero" style="padding-bottom:10px">
+      <h1 data-i18n="players.h1">The players</h1>
+      <p data-i18n="players.tagline">The realm's top characters — class, level, lifetime XP and prestige — synced automatically from the game's official leaderboard API every 3 hours. Straight from the game, same for everyone.</p>
+    </section>
+
+    <section>
+      <div class="chips" data-players-chips></div>
+      <div class="table-scroll" data-players-table></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer.tagline">WoCC Guild Boards — a community project, not affiliated with levy-street (yet!).</span>
+    <a href="https://github.com/Reptile-New/guild-leaderbord" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
