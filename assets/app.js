@@ -231,17 +231,19 @@
 
   /* ---------- Render: guilds ---------- */
   const GUILD_SORTS = [
+    { id: "srank",   label: () => t("srvRank"),   val: g => g.serverRank != null ? -g.serverRank : -Infinity },
     { id: "members", label: () => t("members"),   val: g => g.members ?? -1 },
     { id: "xp",      label: () => t("totalXp"),   val: g => g.totalXp ?? -1 },
     { id: "level",   label: () => t("avgLevel"),  val: g => g.avgLevel ?? -1 },
     { id: "age",     label: () => t("seniority"), val: g => g.created ? -new Date(g.created).getTime() : -Infinity },
   ];
-  let guildSort = "members";
+  let guildSort = null;
 
   function renderGuilds() {
     const chips = document.querySelector("[data-guild-chips]");
     const host = document.querySelector("[data-guild-table]");
     if (!host) return;
+    if (!guildSort) guildSort = DB.guilds.some(g => g.serverRank != null) ? "srank" : "members";
     if (chips) {
       chips.innerHTML = `<span style="align-self:center;color:var(--faint);font-size:0.82rem">${t("sortBy")}:</span>` +
         GUILD_SORTS.map(s => `<button type="button" class="chip${s.id === guildSort ? " on" : ""}" data-sort="${s.id}">${s.label()}</button>`).join("");
@@ -251,13 +253,14 @@
     const sorter = GUILD_SORTS.find(s => s.id === guildSort);
     const rows = [...DB.guilds].sort((a, b) => sorter.val(b) - sorter.val(a));
     host.innerHTML = `<table class="board">
-      <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th>${t("region")}</th>
+      <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th class="num">${t("srvRank")}</th><th>${t("region")}</th>
         <th class="num">${t("members")}</th><th class="num">${t("avgLevel")}</th>
         <th class="num">${t("totalXp")}</th><th>${t("since")}</th></tr></thead>
       <tbody>${rows.map((g, i) => `<tr>
         <td>${rankCell(i)}</td>
         <td>${guildCell(g)}<span class="gsub">${esc(g.motto || "")}${g.site ? ` · <a class="video-link" href="${esc(g.site)}">${esc(g.site.replace(/^https?:\/\//, ""))}</a>` : ""}</span></td>
-        <td>${esc(g.region)} <span class="gtag">${esc((g.lang || "").toUpperCase())}</span></td>
+        <td class="num mono">${g.serverRank != null ? "#" + g.serverRank : "—"}</td>
+        <td>${g.region ? esc(g.region) : "—"} <span class="gtag">${esc((g.lang || "").toUpperCase())}</span></td>
         <td class="num">${fmtInt(g.members)}</td><td class="num">${fmtInt(g.avgLevel)}</td>
         <td class="num mono">${fmtInt(g.totalXp)}</td><td>${fmtDate(g.created)}</td></tr>`).join("")}</tbody></table>`;
   }

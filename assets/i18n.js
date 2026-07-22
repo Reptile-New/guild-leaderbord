@@ -90,10 +90,10 @@ window.I18N = {
     "guilds.title": { en: "Guilds — WoCC Guild Boards", fr: "Guildes — WoCC Guild Boards", de: "Gilden — WoCC Guild Boards", es: "Gremios — WoCC Guild Boards" },
     "guilds.h1": { en: "The guilds", fr: "Les guildes", de: "Die Gilden", es: "Los gremios" },
     "guilds.tagline": {
-      en: "Every registered guild, sortable by members, average level, total XP or seniority. Numbers are declared by guild masters and refreshed with each submission.",
-      fr: "Toutes les guildes inscrites, triables par effectif, niveau moyen, XP totale ou ancienneté. Les chiffres sont déclarés par les maîtres de guilde et rafraîchis à chaque soumission.",
-      de: "Alle registrierten Gilden, sortierbar nach Mitgliedern, Durchschnittslevel, Gesamt-XP oder Alter. Die Zahlen werden von den Gildenmeistern gemeldet und mit jeder Einreichung aktualisiert.",
-      es: "Todos los gremios registrados, ordenables por miembros, nivel medio, XP total o antigüedad. Las cifras las declaran los maestros de gremio y se actualizan con cada envío." },
+      en: "Every guild on the server, synced automatically from the game's official leaderboard API (rank, members, XP — every 3 hours). Mottos, websites and languages are declared by guild masters.",
+      fr: "Toutes les guildes du serveur, synchronisées automatiquement depuis l'API officielle du classement du jeu (rang, effectif, XP — toutes les 3 heures). Devises, sites et langues sont déclarés par les maîtres de guilde.",
+      de: "Alle Gilden des Servers, automatisch über die offizielle Leaderboard-API des Spiels synchronisiert (Rang, Mitglieder, XP — alle 3 Stunden). Mottos, Websites und Sprachen melden die Gildenmeister.",
+      es: "Todos los gremios del servidor, sincronizados automáticamente desde la API oficial de clasificación del juego (rango, miembros, XP — cada 3 horas). Los lemas, webs e idiomas los declaran los maestros de gremio." },
     "guilds.missing": {
       en: "Your guild is missing? Register it — see the Rules page.",
       fr: "Ta guilde manque à l'appel ? Inscris-la — voir la page Règlement.",
@@ -284,6 +284,7 @@ window.I18N = {
     "all":         { en: "All", fr: "Tout", de: "Alle", es: "Todo" },
     "sortBy":      { en: "Sort by", fr: "Trier par", de: "Sortieren nach", es: "Ordenar por" },
     "seniority":   { en: "Seniority", fr: "Ancienneté", de: "Alter", es: "Antigüedad" },
+    "srvRank":     { en: "Server rank", fr: "Rang serveur", de: "Server-Rang", es: "Rango del servidor" },
     "bestTimeNote":{
       en: "Best time per guild. Verified entries (video) always rank above declared ones.",
       fr: "Meilleur temps par guilde. Les entrées vérifiées (vidéo) passent toujours devant les déclarées.",

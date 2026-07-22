@@ -1,5 +1,5 @@
 {
-  "_help": "Registry of guilds on the Boards. A guild registers via the 'Guild registration' issue (or a PR on this file). Fields: members (declared roster size), avgLevel (average member level), totalXp (cumulative member XP), created (guild creation date) — all optional except id/name/tag; null renders as '—' on the site.",
+  "_help": "Registry of guilds on the Boards. serverRank/members/avgLevel/totalXp are synced automatically from the game's official leaderboard API by scripts/sync_guilds.py (3-hour cron, see update-guilds.yml) — do not edit them by hand. Editorial fields (tag, region, lang, site, motto, created) are managed via issues/PRs and never touched by the sync. null renders as '—' on the site.",
   "guilds": [
     {
       "id": "la-clauderie",
@@ -7,6 +7,7 @@
       "tag": "CLDR",
       "region": "EU",
       "lang": "fr",
+      "serverRank": 5,
       "members": 9,
       "avgLevel": null,
       "totalXp": null,
