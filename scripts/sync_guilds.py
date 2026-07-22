@@ -41,8 +41,13 @@ def fetch_all():
     leaders = []
     for page in range(40):  # 40 × 50 = 2000 guildes max, large
         url = API.format(page=page)
+        # L'API refuse le User-Agent par défaut de urllib (403) — on s'annonce.
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "wocc-guild-boards/1.0 (+https://github.com/Reptile-New/guild-leaderbord)",
+            "Accept": "application/json",
+        })
         try:
-            with urllib.request.urlopen(url, timeout=20) as r:
+            with urllib.request.urlopen(req, timeout=20) as r:
                 data = json.load(r)
         except Exception as e:  # réseau/API en vrac : on ne casse rien
             print(f"WARN page {page}: {e}", file=sys.stderr)
