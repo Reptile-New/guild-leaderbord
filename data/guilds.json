@@ -12,7 +12,7 @@
       "created": null,
       "members": 99,
       "avgLevel": null,
-      "totalXp": 40109886,
+      "totalXp": 40256650,
       "serverRank": 1,
       "topLevel": 20
     },
@@ -27,7 +27,7 @@
       "created": null,
       "members": 100,
       "avgLevel": null,
-      "totalXp": 31777193,
+      "totalXp": 31970886,
       "serverRank": 2,
       "topLevel": 20
     },
@@ -42,7 +42,7 @@
       "created": null,
       "members": 69,
       "avgLevel": null,
-      "totalXp": 21806430,
+      "totalXp": 21857535,
       "serverRank": 3,
       "topLevel": 20
     },
@@ -57,7 +57,7 @@
       "created": null,
       "members": 91,
       "avgLevel": null,
-      "totalXp": 11722333,
+      "totalXp": 11794596,
       "serverRank": 4,
       "topLevel": 20
     },
@@ -70,7 +70,7 @@
       "serverRank": 5,
       "members": 39,
       "avgLevel": null,
-      "totalXp": 10008899,
+      "totalXp": 10021522,
       "created": null,
       "site": null,
       "motto": null,
@@ -85,9 +85,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 27,
+      "members": 29,
       "avgLevel": null,
-      "totalXp": 6645044,
+      "totalXp": 7231353,
       "serverRank": 6,
       "topLevel": 20
     },
@@ -102,7 +102,7 @@
       "created": null,
       "members": 28,
       "avgLevel": null,
-      "totalXp": 6435327,
+      "totalXp": 6445609,
       "serverRank": 7,
       "topLevel": 20
     },
@@ -132,7 +132,7 @@
       "created": null,
       "members": 65,
       "avgLevel": null,
-      "totalXp": 5713410,
+      "totalXp": 5713970,
       "serverRank": 9,
       "topLevel": 20
     },
@@ -167,6 +167,21 @@
       "topLevel": 20
     },
     {
+      "id": "raiders-united",
+      "name": "Raiders United",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 14,
+      "avgLevel": null,
+      "totalXp": 3781801,
+      "serverRank": 12,
+      "topLevel": 20
+    },
+    {
       "id": "akatsuki",
       "name": "Akatsuki",
       "tag": null,
@@ -178,21 +193,6 @@
       "members": 24,
       "avgLevel": null,
       "totalXp": 3753545,
-      "serverRank": 12,
-      "topLevel": 20
-    },
-    {
-      "id": "raiders-united",
-      "name": "Raiders United",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 13,
-      "avgLevel": null,
-      "totalXp": 3510155,
       "serverRank": 13,
       "topLevel": 20
     },
@@ -237,7 +237,7 @@
       "created": null,
       "members": 17,
       "avgLevel": null,
-      "totalXp": 2322092,
+      "totalXp": 2323402,
       "serverRank": 16,
       "topLevel": 20
     },
@@ -297,7 +297,7 @@
       "created": null,
       "members": 7,
       "avgLevel": null,
-      "totalXp": 1712411,
+      "totalXp": 1736314,
       "serverRank": 20,
       "topLevel": 20
     },
@@ -357,7 +357,7 @@
       "created": null,
       "members": 6,
       "avgLevel": null,
-      "totalXp": 1123929,
+      "totalXp": 1149241,
       "serverRank": 24,
       "topLevel": 20
     },
@@ -507,7 +507,7 @@
       "created": null,
       "members": 2,
       "avgLevel": null,
-      "totalXp": 518509,
+      "totalXp": 519284,
       "serverRank": 34,
       "topLevel": 20
     },
