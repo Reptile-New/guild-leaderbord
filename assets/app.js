@@ -191,14 +191,17 @@
 
     const board = document.querySelector("[data-home-board]");
     if (board) {
-      const rows = compositeRows();
-      board.innerHTML = `<table class="board">
+      const rows = compositeRows().filter(r => r.total > 0).slice(0, 15);
+      board.innerHTML = rows.length === 0
+        ? `<p class="section-sub" style="margin:4px 2px">${t("noStandings")}</p>`
+        : `<table class="board">
         <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th class="num">${t("pvePts")}</th><th class="num">${t("circuitPts")}</th><th class="num">${t("total")}</th></tr></thead>
         <tbody>${rows.map((r, i) => `<tr>
           <td>${rankCell(i)}</td>
           <td>${guildCell(r.guild)}<span class="gsub">${esc(r.guild.motto || "")}</span></td>
           <td class="num">${r.pve}</td><td class="num">${r.pvp}</td>
           <td class="num"><strong>${r.total}</strong></td></tr>`).join("")}</tbody></table>`;
+      board.classList.toggle("table-scroll", rows.length > 0);
     }
 
     const latest = document.querySelector("[data-home-latest]");
@@ -234,7 +237,7 @@
     { id: "srank",   label: () => t("srvRank"),   val: g => g.serverRank != null ? -g.serverRank : -Infinity },
     { id: "members", label: () => t("members"),   val: g => g.members ?? -1 },
     { id: "xp",      label: () => t("totalXp"),   val: g => g.totalXp ?? -1 },
-    { id: "level",   label: () => t("avgLevel"),  val: g => g.avgLevel ?? -1 },
+    { id: "level",   label: () => t("topLevel"),  val: g => g.topLevel ?? -1 },
     { id: "age",     label: () => t("seniority"), val: g => g.created ? -new Date(g.created).getTime() : -Infinity },
   ];
   let guildSort = null;
@@ -254,14 +257,14 @@
     const rows = [...DB.guilds].sort((a, b) => sorter.val(b) - sorter.val(a));
     host.innerHTML = `<table class="board">
       <thead><tr><th>${t("rank")}</th><th>${t("guild")}</th><th class="num">${t("srvRank")}</th><th>${t("region")}</th>
-        <th class="num">${t("members")}</th><th class="num">${t("avgLevel")}</th>
+        <th class="num">${t("members")}</th><th class="num">${t("topLevel")}</th>
         <th class="num">${t("totalXp")}</th><th>${t("since")}</th></tr></thead>
       <tbody>${rows.map((g, i) => `<tr>
         <td>${rankCell(i)}</td>
         <td>${guildCell(g)}<span class="gsub">${esc(g.motto || "")}${g.site ? ` · <a class="video-link" href="${esc(g.site)}">${esc(g.site.replace(/^https?:\/\//, ""))}</a>` : ""}</span></td>
         <td class="num mono">${g.serverRank != null ? "#" + g.serverRank : "—"}</td>
         <td>${g.region ? esc(g.region) : "—"} <span class="gtag">${esc((g.lang || "").toUpperCase())}</span></td>
-        <td class="num">${fmtInt(g.members)}</td><td class="num">${fmtInt(g.avgLevel)}</td>
+        <td class="num">${fmtInt(g.members)}</td><td class="num">${fmtInt(g.topLevel)}</td>
         <td class="num mono">${fmtInt(g.totalXp)}</td><td>${fmtDate(g.created)}</td></tr>`).join("")}</tbody></table>`;
   }
 

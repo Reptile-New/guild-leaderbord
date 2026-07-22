@@ -38,7 +38,7 @@ def pick(d, *keys):
 
 
 def fetch_all():
-    leaders = []
+    leaders, seen = [], set()
     for page in range(40):  # 40 × 50 = 2000 guildes max, large
         url = API.format(page=page)
         # L'API refuse le User-Agent par défaut de urllib (403) — on s'annonce.
@@ -53,8 +53,16 @@ def fetch_all():
             print(f"WARN page {page}: {e}", file=sys.stderr)
             break
         batch = data.get("leaders") or []
-        leaders += batch
-        if len(batch) < 50:
+        # Au-delà de la dernière page réelle, l'API resert les mêmes entrées :
+        # on s'arrête dès qu'une page n'apporte plus aucune guilde nouvelle.
+        new = []
+        for e in batch:
+            name = e.get("name")
+            if isinstance(name, str) and slugify(name) not in seen:
+                seen.add(slugify(name))
+                new.append(e)
+        leaders += new
+        if len(batch) < 50 or not new:
             break
     return leaders
 
@@ -84,18 +92,19 @@ def main():
         g = by_id.setdefault(gid, {
             "id": gid, "name": name,
             **{k: None for k in MANUAL_FIELDS},
-            "members": None, "avgLevel": None, "totalXp": None,
+            "members": None, "topLevel": None, "totalXp": None,
         })
         g["name"] = name
         rank = pick(e, "rank", "position", "place")
         g["serverRank"] = int(rank) if rank is not None else None
-        members = pick(e, "members", "memberCount", "membersCount", "size", "playerCount")
-        level = pick(e, "avgLevel", "averageLevel", "avg_level", "level")
-        xp = pick(e, "totalXp", "totalXP", "xp", "score", "points", "value")
+        # Schéma observé (juil. 2026) : rank, name, memberCount, totalLifetimeXp, topLevel.
+        members = pick(e, "memberCount", "members", "membersCount", "size", "playerCount")
+        top_level = pick(e, "topLevel", "maxLevel", "highestLevel")
+        xp = pick(e, "totalLifetimeXp", "totalXp", "totalXP", "xp", "score", "points")
         if members is not None:
             g["members"] = int(members)
-        if level is not None:
-            g["avgLevel"] = round(float(level), 1)
+        if top_level is not None:
+            g["topLevel"] = int(top_level)
         if xp is not None:
             g["totalXp"] = int(xp)
 
@@ -107,7 +116,7 @@ def main():
         by_id.values(),
         key=lambda g: (g.get("serverRank") is None, g.get("serverRank") or 0, g["name"].lower()),
     )
-    doc["_sync"] = "Champs serverRank/members/avgLevel/totalXp gérés par scripts/sync_guilds.py (API officielle du jeu, cron 3 h). Champs éditoriaux (tag, region, lang, site, motto, created) : issues/PR uniquement."
+    doc["_sync"] = "Champs serverRank/members/topLevel/totalXp gérés par scripts/sync_guilds.py (API officielle du jeu, cron 3 h). Champs éditoriaux (tag, region, lang, site, motto, created) : issues/PR uniquement."
     with open(PATH, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2)
         f.write("\n")

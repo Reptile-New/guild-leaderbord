@@ -285,6 +285,12 @@ window.I18N = {
     "sortBy":      { en: "Sort by", fr: "Trier par", de: "Sortieren nach", es: "Ordenar por" },
     "seniority":   { en: "Seniority", fr: "Ancienneté", de: "Alter", es: "Antigüedad" },
     "srvRank":     { en: "Server rank", fr: "Rang serveur", de: "Server-Rang", es: "Rango del servidor" },
+    "topLevel":    { en: "Top level", fr: "Niveau max", de: "Top-Level", es: "Nivel máx." },
+    "noStandings": {
+      en: "No points scored yet — points come from PvE records and tournament placements. Submit yours!",
+      fr: "Pas encore de points marqués — ils viennent des records PvE et des placements en tournoi. Soumettez les vôtres !",
+      de: "Noch keine Punkte — Punkte kommen aus PvE-Rekorden und Turnierplatzierungen. Reicht eure ein!",
+      es: "Aún no hay puntos — llegan de los récords PvE y las posiciones en torneos. ¡Enviad los vuestros!" },
     "bestTimeNote":{
       en: "Best time per guild. Verified entries (video) always rank above declared ones.",
       fr: "Meilleur temps par guilde. Les entrées vérifiées (vidéo) passent toujours devant les déclarées.",
