@@ -12,7 +12,7 @@
       "created": null,
       "members": 99,
       "avgLevel": null,
-      "totalXp": 41129073,
+      "totalXp": 41210391,
       "serverRank": 1,
       "topLevel": 20
     },
@@ -25,9 +25,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 100,
+      "members": 92,
       "avgLevel": null,
-      "totalXp": 32507368,
+      "totalXp": 30492219,
       "serverRank": 2,
       "topLevel": 20
     },
@@ -42,7 +42,7 @@
       "created": null,
       "members": 70,
       "avgLevel": null,
-      "totalXp": 22504106,
+      "totalXp": 22544326,
       "serverRank": 3,
       "topLevel": 20
     },
@@ -55,9 +55,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 91,
+      "members": 92,
       "avgLevel": null,
-      "totalXp": 11916111,
+      "totalXp": 12139297,
       "serverRank": 4,
       "topLevel": 20
     },
@@ -70,7 +70,7 @@
       "serverRank": 5,
       "members": 39,
       "avgLevel": null,
-      "totalXp": 10083294,
+      "totalXp": 10103053,
       "created": null,
       "site": null,
       "motto": null,
@@ -87,7 +87,7 @@
       "created": null,
       "members": 34,
       "avgLevel": null,
-      "totalXp": 7654549,
+      "totalXp": 7684999,
       "serverRank": 6,
       "topLevel": 20
     },
@@ -102,7 +102,7 @@
       "created": null,
       "members": 30,
       "avgLevel": null,
-      "totalXp": 7332272,
+      "totalXp": 7344408,
       "serverRank": 7,
       "topLevel": 20
     },
@@ -182,21 +182,6 @@
       "topLevel": 20
     },
     {
-      "id": "raiders-united",
-      "name": "Raiders United",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 13,
-      "avgLevel": null,
-      "totalXp": 3549057,
-      "serverRank": 13,
-      "topLevel": 20
-    },
-    {
       "id": "gameover",
       "name": "GameOver",
       "tag": null,
@@ -208,6 +193,21 @@
       "members": 13,
       "avgLevel": null,
       "totalXp": 3334748,
+      "serverRank": 13,
+      "topLevel": 20
+    },
+    {
+      "id": "raiders-united",
+      "name": "Raiders United",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 12,
+      "avgLevel": null,
+      "totalXp": 3269221,
       "serverRank": 14,
       "topLevel": 20
     },
@@ -222,23 +222,8 @@
       "created": null,
       "members": 12,
       "avgLevel": null,
-      "totalXp": 3202285,
+      "totalXp": 3240539,
       "serverRank": 15,
-      "topLevel": 20
-    },
-    {
-      "id": "ehren-nuggets-academy",
-      "name": "Ehren Nuggets Academy",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 27,
-      "avgLevel": null,
-      "totalXp": 2440719,
-      "serverRank": 16,
       "topLevel": 20
     },
     {
@@ -253,6 +238,21 @@
       "members": 12,
       "avgLevel": null,
       "totalXp": 2407489,
+      "serverRank": 16,
+      "topLevel": 20
+    },
+    {
+      "id": "ehren-nuggets-academy",
+      "name": "Ehren Nuggets Academy",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 26,
+      "avgLevel": null,
+      "totalXp": 2259716,
       "serverRank": 17,
       "topLevel": 20
     },
@@ -312,7 +312,7 @@
       "created": null,
       "members": 8,
       "avgLevel": null,
-      "totalXp": 1562486,
+      "totalXp": 1565076,
       "serverRank": 21,
       "topLevel": 20
     },
@@ -342,7 +342,7 @@
       "created": null,
       "members": 4,
       "avgLevel": null,
-      "totalXp": 1209895,
+      "totalXp": 1217290,
       "serverRank": 23,
       "topLevel": 20
     },
@@ -357,7 +357,7 @@
       "created": null,
       "members": 7,
       "avgLevel": null,
-      "totalXp": 1158373,
+      "totalXp": 1162315,
       "serverRank": 24,
       "topLevel": 20
     },
@@ -372,7 +372,7 @@
       "created": null,
       "members": 6,
       "avgLevel": null,
-      "totalXp": 1149541,
+      "totalXp": 1153076,
       "serverRank": 25,
       "topLevel": 20
     },
@@ -432,7 +432,7 @@
       "created": null,
       "members": 3,
       "avgLevel": null,
-      "totalXp": 903413,
+      "totalXp": 903651,
       "serverRank": 29,
       "topLevel": 20
     },
@@ -492,7 +492,7 @@
       "created": null,
       "members": 12,
       "topLevel": 20,
-      "totalXp": 726201,
+      "totalXp": 762311,
       "serverRank": 33
     },
     {
