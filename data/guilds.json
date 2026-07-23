@@ -12,7 +12,7 @@
       "created": null,
       "members": 99,
       "avgLevel": null,
-      "totalXp": 40812832,
+      "totalXp": 40957278,
       "serverRank": 1,
       "topLevel": 20
     },
@@ -27,7 +27,7 @@
       "created": null,
       "members": 100,
       "avgLevel": null,
-      "totalXp": 32305873,
+      "totalXp": 32375995,
       "serverRank": 2,
       "topLevel": 20
     },
@@ -42,7 +42,7 @@
       "created": null,
       "members": 70,
       "avgLevel": null,
-      "totalXp": 22453769,
+      "totalXp": 22475310,
       "serverRank": 3,
       "topLevel": 20
     },
@@ -70,7 +70,7 @@
       "serverRank": 5,
       "members": 39,
       "avgLevel": null,
-      "totalXp": 10076630,
+      "totalXp": 10077685,
       "created": null,
       "site": null,
       "motto": null,
@@ -87,7 +87,7 @@
       "created": null,
       "members": 32,
       "avgLevel": null,
-      "totalXp": 7527191,
+      "totalXp": 7527735,
       "serverRank": 6,
       "topLevel": 20
     },
@@ -102,7 +102,7 @@
       "created": null,
       "members": 29,
       "avgLevel": null,
-      "totalXp": 7342336,
+      "totalXp": 7346122,
       "serverRank": 7,
       "topLevel": 20
     },
@@ -117,7 +117,7 @@
       "created": null,
       "members": 28,
       "avgLevel": null,
-      "totalXp": 6473349,
+      "totalXp": 6473636,
       "serverRank": 8,
       "topLevel": 20
     },
@@ -192,7 +192,7 @@
       "created": null,
       "members": 13,
       "avgLevel": null,
-      "totalXp": 3543910,
+      "totalXp": 3543969,
       "serverRank": 13,
       "topLevel": 20
     },
@@ -212,21 +212,6 @@
       "topLevel": 20
     },
     {
-      "id": "amen",
-      "name": "AMEN",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 10,
-      "avgLevel": null,
-      "totalXp": 2636612,
-      "serverRank": 15,
-      "topLevel": 20
-    },
-    {
       "id": "ehren-nuggets-academy",
       "name": "Ehren Nuggets Academy",
       "tag": null,
@@ -237,7 +222,22 @@
       "created": null,
       "members": 28,
       "avgLevel": null,
-      "totalXp": 2554841,
+      "totalXp": 2645022,
+      "serverRank": 15,
+      "topLevel": 20
+    },
+    {
+      "id": "amen",
+      "name": "AMEN",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 10,
+      "avgLevel": null,
+      "totalXp": 2642662,
       "serverRank": 16,
       "topLevel": 20
     },
@@ -377,6 +377,21 @@
       "topLevel": 20
     },
     {
+      "id": "vision",
+      "name": "VISION",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 6,
+      "avgLevel": null,
+      "totalXp": 993351,
+      "serverRank": 26,
+      "topLevel": 20
+    },
+    {
       "id": "the-watchers",
       "name": "The Watchers",
       "tag": null,
@@ -388,7 +403,7 @@
       "members": 38,
       "avgLevel": null,
       "totalXp": 927997,
-      "serverRank": 26,
+      "serverRank": 27,
       "topLevel": 20
     },
     {
@@ -403,7 +418,7 @@
       "members": 3,
       "avgLevel": null,
       "totalXp": 903413,
-      "serverRank": 27,
+      "serverRank": 28,
       "topLevel": 20
     },
     {
@@ -417,22 +432,7 @@
       "created": null,
       "members": 11,
       "avgLevel": null,
-      "totalXp": 859541,
-      "serverRank": 28,
-      "topLevel": 20
-    },
-    {
-      "id": "vision",
-      "name": "VISION",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 5,
-      "avgLevel": null,
-      "totalXp": 856888,
+      "totalXp": 902328,
       "serverRank": 29,
       "topLevel": 20
     },
@@ -507,7 +507,7 @@
       "created": null,
       "members": 12,
       "topLevel": 20,
-      "totalXp": 660469,
+      "totalXp": 690958,
       "serverRank": 34
     },
     {
@@ -671,7 +671,7 @@
       "created": null,
       "members": 1,
       "avgLevel": null,
-      "totalXp": 451091,
+      "totalXp": 451378,
       "serverRank": 45,
       "topLevel": 20
     },
