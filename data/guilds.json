@@ -12,7 +12,7 @@
       "created": null,
       "members": 99,
       "avgLevel": null,
-      "totalXp": 41619547,
+      "totalXp": 41701175,
       "serverRank": 1,
       "topLevel": 20
     },
@@ -27,7 +27,7 @@
       "created": null,
       "members": 92,
       "avgLevel": null,
-      "totalXp": 30777283,
+      "totalXp": 30814194,
       "serverRank": 2,
       "topLevel": 20
     },
@@ -40,9 +40,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 76,
+      "members": 77,
       "avgLevel": null,
-      "totalXp": 23767180,
+      "totalXp": 23655687,
       "serverRank": 3,
       "topLevel": 20
     },
@@ -57,7 +57,7 @@
       "created": null,
       "members": 91,
       "avgLevel": null,
-      "totalXp": 12002188,
+      "totalXp": 12003426,
       "serverRank": 4,
       "topLevel": 20
     },
@@ -68,9 +68,9 @@
       "region": null,
       "lang": null,
       "serverRank": 5,
-      "members": 39,
+      "members": 40,
       "avgLevel": null,
-      "totalXp": 10125821,
+      "totalXp": 10393169,
       "created": null,
       "site": null,
       "motto": null,
@@ -87,7 +87,7 @@
       "created": null,
       "members": 34,
       "avgLevel": null,
-      "totalXp": 7757392,
+      "totalXp": 7796143,
       "serverRank": 6,
       "topLevel": 20
     },
@@ -102,7 +102,7 @@
       "created": null,
       "members": 30,
       "avgLevel": null,
-      "totalXp": 7370576,
+      "totalXp": 7376308,
       "serverRank": 7,
       "topLevel": 20
     },
@@ -132,7 +132,7 @@
       "created": null,
       "members": 34,
       "topLevel": 20,
-      "totalXp": 5855336,
+      "totalXp": 5857942,
       "serverRank": 9
     },
     {
@@ -176,7 +176,7 @@
       "created": null,
       "members": 26,
       "avgLevel": null,
-      "totalXp": 4170687,
+      "totalXp": 4170995,
       "serverRank": 12,
       "topLevel": 20
     },
@@ -206,7 +206,7 @@
       "created": null,
       "members": 13,
       "avgLevel": null,
-      "totalXp": 3334748,
+      "totalXp": 3335576,
       "serverRank": 14,
       "topLevel": 20
     },
@@ -221,7 +221,7 @@
       "created": null,
       "members": 12,
       "avgLevel": null,
-      "totalXp": 3293532,
+      "totalXp": 3299690,
       "serverRank": 15,
       "topLevel": 20
     },
@@ -236,7 +236,7 @@
       "created": null,
       "members": 12,
       "avgLevel": null,
-      "totalXp": 3288745,
+      "totalXp": 3290677,
       "serverRank": 16,
       "topLevel": 20
     },
@@ -266,7 +266,7 @@
       "created": null,
       "members": 26,
       "avgLevel": null,
-      "totalXp": 2287057,
+      "totalXp": 2294702,
       "serverRank": 18,
       "topLevel": 20
     },
@@ -326,7 +326,7 @@
       "created": null,
       "members": 7,
       "avgLevel": null,
-      "totalXp": 1601604,
+      "totalXp": 1610948,
       "serverRank": 22,
       "topLevel": 20
     },
@@ -341,7 +341,7 @@
       "created": null,
       "members": 8,
       "avgLevel": null,
-      "totalXp": 1576008,
+      "totalXp": 1583405,
       "serverRank": 23,
       "topLevel": 20
     },
@@ -386,7 +386,7 @@
       "created": null,
       "members": 6,
       "avgLevel": null,
-      "totalXp": 1180774,
+      "totalXp": 1214765,
       "serverRank": 26,
       "topLevel": 20
     },
@@ -431,7 +431,7 @@
       "created": null,
       "members": 11,
       "avgLevel": null,
-      "totalXp": 911864,
+      "totalXp": 912048,
       "serverRank": 29,
       "topLevel": 20
     },
@@ -616,6 +616,21 @@
       "topLevel": 20
     },
     {
+      "id": "carpe-noctem",
+      "name": "Carpe Noctem",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 3,
+      "avgLevel": null,
+      "totalXp": 466168,
+      "serverRank": 42,
+      "topLevel": 20
+    },
+    {
       "id": "crimson-shroud",
       "name": "Crimson Shroud",
       "tag": null,
@@ -627,21 +642,6 @@
       "members": 7,
       "avgLevel": null,
       "totalXp": 465780,
-      "serverRank": 42,
-      "topLevel": 20
-    },
-    {
-      "id": "carpe-noctem",
-      "name": "Carpe Noctem",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 3,
-      "avgLevel": null,
-      "totalXp": 458242,
       "serverRank": 43,
       "topLevel": 20
     },
@@ -811,6 +811,21 @@
       "topLevel": 20
     },
     {
+      "id": "mythless",
+      "name": "Mythless",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 1,
+      "avgLevel": null,
+      "totalXp": 263203,
+      "serverRank": 55,
+      "topLevel": 20
+    },
+    {
       "id": "guild",
       "name": "Guild",
       "tag": null,
@@ -822,21 +837,6 @@
       "members": 6,
       "avgLevel": null,
       "totalXp": 257968,
-      "serverRank": 55,
-      "topLevel": 20
-    },
-    {
-      "id": "mythless",
-      "name": "Mythless",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 1,
-      "avgLevel": null,
-      "totalXp": 257316,
       "serverRank": 56,
       "topLevel": 20
     },
@@ -1215,6 +1215,20 @@
       "topLevel": 10
     },
     {
+      "id": "horde-gauloise",
+      "name": "Horde Gauloise",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 1,
+      "topLevel": 13,
+      "totalXp": 59279,
+      "serverRank": 82
+    },
+    {
       "id": "smokeybot",
       "name": "smokeybot",
       "tag": null,
@@ -1226,7 +1240,7 @@
       "members": 2,
       "avgLevel": null,
       "totalXp": 57877,
-      "serverRank": 82,
+      "serverRank": 83,
       "topLevel": 10
     },
     {
@@ -1241,7 +1255,7 @@
       "members": 2,
       "avgLevel": null,
       "totalXp": 55214,
-      "serverRank": 83,
+      "serverRank": 84,
       "topLevel": 10
     },
     {
@@ -1256,7 +1270,7 @@
       "members": 2,
       "avgLevel": null,
       "totalXp": 54513,
-      "serverRank": 84,
+      "serverRank": 85,
       "topLevel": 13
     },
     {
@@ -1271,22 +1285,8 @@
       "members": 1,
       "avgLevel": null,
       "totalXp": 53141,
-      "serverRank": 85,
+      "serverRank": 86,
       "topLevel": 12
-    },
-    {
-      "id": "horde-gauloise",
-      "name": "Horde Gauloise",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 1,
-      "topLevel": 12,
-      "totalXp": 50468,
-      "serverRank": 87
     },
     {
       "id": "laughing-coffin",
@@ -1424,6 +1424,21 @@
       "topLevel": 10
     },
     {
+      "id": "bier-um-fear",
+      "name": "Bier um Fear",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 1,
+      "avgLevel": null,
+      "totalXp": 30485,
+      "serverRank": 97,
+      "topLevel": 10
+    },
+    {
       "id": "sanxes-pedro",
       "name": "Sanxes Pedro",
       "tag": null,
@@ -1435,7 +1450,7 @@
       "members": 1,
       "avgLevel": null,
       "totalXp": 28503,
-      "serverRank": 97,
+      "serverRank": 98,
       "topLevel": 10
     },
     {
@@ -1450,23 +1465,8 @@
       "members": 2,
       "avgLevel": null,
       "totalXp": 19915,
-      "serverRank": 98,
-      "topLevel": 6
-    },
-    {
-      "id": "bier-um-fear",
-      "name": "Bier um Fear",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 1,
-      "avgLevel": null,
-      "totalXp": 19513,
       "serverRank": 99,
-      "topLevel": 8
+      "topLevel": 6
     },
     {
       "id": "sadderdaynightlive",
