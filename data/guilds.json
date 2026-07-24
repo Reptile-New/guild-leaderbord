@@ -12,7 +12,7 @@
       "created": null,
       "members": 99,
       "avgLevel": null,
-      "totalXp": 41328336,
+      "totalXp": 41376672,
       "serverRank": 1,
       "topLevel": 20
     },
@@ -27,7 +27,7 @@
       "created": null,
       "members": 92,
       "avgLevel": null,
-      "totalXp": 30655653,
+      "totalXp": 30689783,
       "serverRank": 2,
       "topLevel": 20
     },
@@ -40,9 +40,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 70,
+      "members": 76,
       "avgLevel": null,
-      "totalXp": 22640562,
+      "totalXp": 23578388,
       "serverRank": 3,
       "topLevel": 20
     },
@@ -57,7 +57,7 @@
       "created": null,
       "members": 91,
       "avgLevel": null,
-      "totalXp": 11942832,
+      "totalXp": 11948901,
       "serverRank": 4,
       "topLevel": 20
     },
@@ -70,7 +70,7 @@
       "serverRank": 5,
       "members": 39,
       "avgLevel": null,
-      "totalXp": 10110236,
+      "totalXp": 10119206,
       "created": null,
       "site": null,
       "motto": null,
@@ -87,7 +87,7 @@
       "created": null,
       "members": 34,
       "avgLevel": null,
-      "totalXp": 7729894,
+      "totalXp": 7734669,
       "serverRank": 6,
       "topLevel": 20
     },
@@ -102,7 +102,7 @@
       "created": null,
       "members": 30,
       "avgLevel": null,
-      "totalXp": 7354255,
+      "totalXp": 7362240,
       "serverRank": 7,
       "topLevel": 20
     },
@@ -117,7 +117,7 @@
       "created": null,
       "members": 28,
       "avgLevel": null,
-      "totalXp": 6473636,
+      "totalXp": 6475134,
       "serverRank": 8,
       "topLevel": 20
     },
@@ -137,6 +137,20 @@
       "topLevel": 20
     },
     {
+      "id": "holy-order",
+      "name": "Holy Order",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 32,
+      "topLevel": 20,
+      "totalXp": 4928384,
+      "serverRank": 10
+    },
+    {
       "id": "cool-people",
       "name": "Cool People",
       "tag": null,
@@ -147,8 +161,8 @@
       "created": null,
       "members": 42,
       "avgLevel": null,
-      "totalXp": 4466450,
-      "serverRank": 10,
+      "totalXp": 4489495,
+      "serverRank": 11,
       "topLevel": 20
     },
     {
@@ -163,7 +177,7 @@
       "members": 26,
       "avgLevel": null,
       "totalXp": 4170687,
-      "serverRank": 11,
+      "serverRank": 12,
       "topLevel": 20
     },
     {
@@ -178,22 +192,8 @@
       "members": 24,
       "avgLevel": null,
       "totalXp": 3753545,
-      "serverRank": 12,
+      "serverRank": 13,
       "topLevel": 20
-    },
-    {
-      "id": "holy-order",
-      "name": "Holy Order",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 27,
-      "topLevel": 20,
-      "totalXp": 3471719,
-      "serverRank": 13
     },
     {
       "id": "gameover",
@@ -221,7 +221,7 @@
       "created": null,
       "members": 12,
       "avgLevel": null,
-      "totalXp": 3281432,
+      "totalXp": 3288258,
       "serverRank": 15,
       "topLevel": 20
     },
@@ -236,7 +236,7 @@
       "created": null,
       "members": 12,
       "avgLevel": null,
-      "totalXp": 3271342,
+      "totalXp": 3276266,
       "serverRank": 16,
       "topLevel": 20
     },
@@ -266,7 +266,7 @@
       "created": null,
       "members": 26,
       "avgLevel": null,
-      "totalXp": 2267370,
+      "totalXp": 2273014,
       "serverRank": 18,
       "topLevel": 20
     },
@@ -324,9 +324,9 @@
       "site": null,
       "motto": null,
       "created": null,
-      "members": 8,
+      "members": 7,
       "avgLevel": null,
-      "totalXp": 1687380,
+      "totalXp": 1601481,
       "serverRank": 22,
       "topLevel": 20
     },
@@ -341,7 +341,7 @@
       "created": null,
       "members": 8,
       "avgLevel": null,
-      "totalXp": 1575566,
+      "totalXp": 1576008,
       "serverRank": 23,
       "topLevel": 20
     },
@@ -386,7 +386,7 @@
       "created": null,
       "members": 6,
       "avgLevel": null,
-      "totalXp": 1011488,
+      "totalXp": 1096524,
       "serverRank": 26,
       "topLevel": 20
     },
@@ -466,6 +466,21 @@
       "topLevel": 20
     },
     {
+      "id": "levy-street",
+      "name": "LEVY STREET",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 5,
+      "avgLevel": null,
+      "totalXp": 802301,
+      "serverRank": 32,
+      "topLevel": 20
+    },
+    {
       "id": "the-citadel",
       "name": "The Citadel",
       "tag": null,
@@ -477,21 +492,6 @@
       "members": 3,
       "avgLevel": null,
       "totalXp": 791641,
-      "serverRank": 32,
-      "topLevel": 20
-    },
-    {
-      "id": "levy-street",
-      "name": "LEVY STREET",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 5,
-      "avgLevel": null,
-      "totalXp": 771348,
       "serverRank": 33,
       "topLevel": 20
     },
@@ -611,7 +611,7 @@
       "created": null,
       "members": 1,
       "avgLevel": null,
-      "totalXp": 478632,
+      "totalXp": 478968,
       "serverRank": 41,
       "topLevel": 20
     },
@@ -836,7 +836,7 @@
       "created": null,
       "members": 1,
       "avgLevel": null,
-      "totalXp": 253458,
+      "totalXp": 257316,
       "serverRank": 56,
       "topLevel": 20
     },
@@ -871,6 +871,21 @@
       "topLevel": 20
     },
     {
+      "id": "pintas-natalenses",
+      "name": "PINtas natalenses",
+      "tag": null,
+      "region": null,
+      "lang": null,
+      "site": null,
+      "motto": null,
+      "created": null,
+      "members": 4,
+      "avgLevel": null,
+      "totalXp": 245191,
+      "serverRank": 59,
+      "topLevel": 14
+    },
+    {
       "id": "brasil",
       "name": "BRASIL",
       "tag": null,
@@ -882,7 +897,7 @@
       "members": 4,
       "avgLevel": null,
       "totalXp": 244203,
-      "serverRank": 59,
+      "serverRank": 60,
       "topLevel": 16
     },
     {
@@ -897,7 +912,7 @@
       "members": 1,
       "avgLevel": null,
       "totalXp": 243423,
-      "serverRank": 60,
+      "serverRank": 61,
       "topLevel": 20
     },
     {
@@ -912,7 +927,7 @@
       "members": 3,
       "avgLevel": null,
       "totalXp": 239898,
-      "serverRank": 61,
+      "serverRank": 62,
       "topLevel": 20
     },
     {
@@ -927,7 +942,7 @@
       "members": 1,
       "avgLevel": null,
       "totalXp": 236401,
-      "serverRank": 62,
+      "serverRank": 63,
       "topLevel": 20
     },
     {
@@ -942,7 +957,7 @@
       "members": 4,
       "avgLevel": null,
       "totalXp": 225751,
-      "serverRank": 63,
+      "serverRank": 64,
       "topLevel": 14
     },
     {
@@ -957,23 +972,8 @@
       "members": 1,
       "avgLevel": null,
       "totalXp": 221777,
-      "serverRank": 64,
-      "topLevel": 20
-    },
-    {
-      "id": "pintas-natalenses",
-      "name": "PINtas natalenses",
-      "tag": null,
-      "region": null,
-      "lang": null,
-      "site": null,
-      "motto": null,
-      "created": null,
-      "members": 4,
-      "avgLevel": null,
-      "totalXp": 194708,
       "serverRank": 65,
-      "topLevel": 14
+      "topLevel": 20
     },
     {
       "id": "irgloop",
@@ -1091,7 +1091,7 @@
       "created": null,
       "members": 2,
       "avgLevel": null,
-      "totalXp": 116373,
+      "totalXp": 117227,
       "serverRank": 73,
       "topLevel": 14
     },
@@ -1481,7 +1481,7 @@
       "created": null,
       "members": 1,
       "avgLevel": null,
-      "totalXp": 17706,
+      "totalXp": 18017,
       "serverRank": 100,
       "topLevel": 8
     },
